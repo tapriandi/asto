@@ -1,44 +1,45 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/site.config";
-import SectionHeading from "@/app/components/primitives/SectionHeading";
 import Reveal from "@/app/components/primitives/Reveal";
 
 export default function Services() {
   return (
-    <section className="container-edge py-[var(--spacing-section)]">
-      <Reveal>
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeading title="Services." meta="( _04 )" />
-          <Link href="/contact" className="label line-hover" data-cursor="hover">
-            Get in touch →
-          </Link>
-        </div>
-      </Reveal>
-
-      <ul className="mt-14 border-t border-line">
-        {site.services.map((service, i) => (
-          <Reveal as="li" key={service.no} delay={i * 0.04}>
-            <Link
-              href="/contact"
-              className="group grid grid-cols-[auto_1fr_auto] items-baseline gap-6 border-b border-line py-8 transition-colors duration-300 hover:bg-surface/40 md:gap-12 md:py-10"
-              data-cursor="hover"
-            >
-              <span className="label w-12 text-muted">({service.no})</span>
-              <div className="grid gap-2 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:items-baseline md:gap-8">
-                <h3 className="display-md font-display transition-transform duration-500 group-hover:translate-x-1">
-                  {service.title}
-                </h3>
-                <p className="max-w-[44ch] text-sm leading-relaxed text-muted">
-                  {service.desc}
-                </p>
-              </div>
-              <span className="text-xl transition-transform duration-500 group-hover:translate-x-2">
-                ↗
-              </span>
+    <section className="py-[var(--spacing-section)]">
+      <div className="site-shell">
+        <Reveal>
+          <div className="flex items-end justify-between gap-6 pb-12">
+            <h2 className="display-lg ml-auto text-right">Services.</h2>
+            <Link href="/contact" className="mb-1 shrink-0 text-base line-hover" data-cursor="hover">
+              Get in touch ↗
             </Link>
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="no-scrollbar flex snap-x snap-mandatory gap-3 overflow-x-auto px-[var(--spacing-edge)] pb-3">
+        {site.services.map((service, i) => (
+          <Reveal key={service.no} delay={i * 0.05} className="min-w-[18rem] snap-start md:min-w-[28rem]">
+            <article className="relative flex h-[31rem] flex-col justify-between overflow-hidden rounded-[2rem] bg-paper p-7 text-ink md:h-[32rem] md:p-8" data-cursor="hover">
+              <Image
+                src={service.image}
+                alt=""
+                fill
+                sizes="(max-width: 768px) 18rem, 28rem"
+                className="object-cover opacity-25 mix-blend-multiply"
+              />
+              <div className="relative flex items-start justify-between">
+                <span className="label text-ink">( {service.no} )</span>
+                <span className="text-2xl">↗</span>
+              </div>
+              <div className="relative">
+                <h3 className="display-md max-w-[10ch]">{service.title}</h3>
+                <p className="mt-5 max-w-[29ch] text-base leading-relaxed text-ink/70">{service.desc}</p>
+              </div>
+            </article>
           </Reveal>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* palette — dark editorial */
   --color-ink: #1e1e1e;
   --color-ink-deep: #161616;
   --color-surface: #2e353b;
@@ -9,15 +8,15 @@
   --color-muted: #8a919b;
   --color-line: #343a40;
   --color-bone: #e8e6e1;
+  --color-paper: #eef0f6;
+  --color-accent: #2e353b;
 
-  /* type */
   --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-chivo-mono), ui-monospace, monospace;
 
-  /* rhythm */
-  --spacing-edge: clamp(1.5rem, 5vw, 6rem);
-  --spacing-section: clamp(5rem, 12vh, 10rem);
+  --spacing-edge: clamp(1rem, 3.2vw, 2.5rem);
+  --spacing-section: clamp(4.5rem, 9.5vw, 8rem);
 }
 
 @layer base {
@@ -49,25 +48,26 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
   }
 }
 
 @layer components {
-  /* horizontal page padding */
-  .container-edge {
+  .site-shell {
+    width: 100%;
+    max-width: 1520px;
+    margin-inline: auto;
     padding-inline: var(--spacing-edge);
   }
 
-  /* small mono label — the "technical studio" voice */
   .label {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
+    font-size: 0.8125rem;
     font-weight: 400;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-transform: none;
     color: var(--color-muted);
   }
 
@@ -75,7 +75,6 @@
     border-top: 1px solid var(--color-line);
   }
 
-  /* link underline that grows from the left */
   .line-hover {
     position: relative;
     display: inline-block;
@@ -91,7 +90,7 @@
     background: currentColor;
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .line-hover:hover::after,
@@ -100,21 +99,21 @@
   }
 
   .display-xl {
-    font-size: clamp(2.75rem, 9vw, 8.5rem);
-    line-height: 0.88;
-    letter-spacing: -0.045em;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
   }
 
   .display-lg {
-    font-size: clamp(2.25rem, 6vw, 5.5rem);
-    line-height: 0.92;
-    letter-spacing: -0.04em;
+    font-size: clamp(2.25rem, 4.8vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
 
   .display-md {
-    font-size: clamp(1.75rem, 3.5vw, 3rem);
-    line-height: 1;
-    letter-spacing: -0.03em;
+    font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
   }
 }
 
@@ -122,7 +121,7 @@
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 38s linear infinite;
+    animation: marquee 34s linear infinite;
   }
 
   .marquee-track:hover {
@@ -138,12 +137,16 @@
     }
   }
 
-  .cursor-none {
-    cursor: none;
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
-/* custom pointer — hidden on touch */
 @media (pointer: coarse) {
   #cursor {
     display: none !important;

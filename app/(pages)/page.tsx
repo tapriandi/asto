@@ -5,6 +5,7 @@ import Statement from "@/app/components/sections/Statement";
 import Stats from "@/app/components/sections/Stats";
 import Testimonials from "@/app/components/sections/Testimonials";
 import Faq from "@/app/components/sections/Faq";
+import BlogPreview from "@/app/components/sections/BlogPreview";
 import Newsletter from "@/app/components/sections/Newsletter";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Stats />
       <Testimonials />
       <Faq />
+      <BlogPreview />
       <Newsletter />
     </>
   );

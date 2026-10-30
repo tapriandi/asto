@@ -11,97 +11,45 @@ export default function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 36);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? "bg-ink/85 backdrop-blur-md" : "bg-transparent"
-      } border-b ${scrolled ? "border-line" : "border-transparent"}`}
-    >
-      <div className="container-edge flex items-center justify-between gap-6 py-5">
-        <Link
-          href="/"
-          className="font-display text-lg tracking-tight"
-          data-cursor="hover"
-          aria-label={`${site.brand.name} home`}
-        >
+    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "bg-ink/90 backdrop-blur-md" : "bg-transparent"}`}>
+      <div className="site-shell flex min-h-20 items-center justify-between gap-5">
+        <Link href="/" className="font-display text-xl tracking-tight" aria-label={`${site.brand.name} home`} data-cursor="hover">
           {site.brand.mark}
         </Link>
-
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
-          {site.nav.map((item) => {
-            const active = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="label line-hover"
-                data-active={active ? "true" : undefined}
-                data-cursor="hover"
-              >
-                <span className="text-muted">( {item.no} )</span> {item.label}
-              </Link>
-            );
-          })}
+        <p className="hidden text-center text-sm md:block">{site.brand.tagline}</p>
+        <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
+          {site.nav.map((item) => (
+            <Link key={item.href} href={item.href} className="label line-hover" data-active={pathname === item.href ? "true" : undefined} data-cursor="hover">
+              ( _{item.no} ) {item.label}
+            </Link>
+          ))}
         </nav>
-
-        <div className="hidden items-center gap-4 lg:flex">
-          <a
-            href={`mailto:${site.brand.email}`}
-            className="label line-hover"
-            data-cursor="hover"
-          >
-            {site.brand.email}
-          </a>
-          <span className="label text-line">/</span>
-          {site.socials.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noreferrer"
-              className="label line-hover"
-              data-cursor="hover"
-            >
-              {s.label}
-            </a>
+        <div className="hidden items-center gap-3 xl:flex">
+          <a href={`mailto:${site.brand.email}`} className="label line-hover" data-cursor="hover">{site.brand.email}</a>
+          <span className="label">/</span>
+          {site.socials.map((social) => (
+            <a key={social.label} href={social.href} target="_blank" rel="noreferrer" className="label line-hover" data-cursor="hover">{social.label}</a>
           ))}
         </div>
-
-        <button
-          type="button"
-          className="label md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-        >
+        <button type="button" className="label lg:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-controls="mobile-nav">
           {open ? "Close" : "Menu"}
         </button>
       </div>
-
       {open ? (
-        <nav
-          id="mobile-nav"
-          className="container-edge flex flex-col gap-5 border-t border-line py-6 md:hidden"
-          aria-label="Mobile"
-        >
+        <nav id="mobile-nav" className="site-shell flex flex-col gap-5 border-t border-line py-6 lg:hidden" aria-label="Mobile">
           {site.nav.map((item) => (
-            <Link key={item.href} href={item.href} className="label">
-              <span className="text-muted">( {item.no} )</span> {item.label}
-            </Link>
+            <Link key={item.href} href={item.href} className="label">( _{item.no} ) {item.label}</Link>
           ))}
-          <a href={`mailto:${site.brand.email}`} className="label text-bone">
-            {site.brand.email}
-          </a>
+          <a href={`mailto:${site.brand.email}`} className="label text-bone">{site.brand.email}</a>
         </nav>
       ) : null}
     </header>

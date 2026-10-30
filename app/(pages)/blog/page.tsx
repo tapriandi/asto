@@ -4,7 +4,7 @@ import Reveal from "@/app/components/primitives/Reveal";
 
 export default function BlogPage() {
   return (
-    <section className="container-edge pb-[var(--spacing-section)] pt-40">
+    <section className="pb-[var(--spacing-section)] pt-36">
       <Reveal>
         <span className="label">( _04 ) Blog</span>
         <h1 className="display-xl mt-6 max-w-[12ch] font-display">Notes.</h1>

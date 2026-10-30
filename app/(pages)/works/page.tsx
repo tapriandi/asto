@@ -47,7 +47,7 @@ export default function WorksPage() {
       <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
         {shown.map((project, i) => (
           <Reveal key={project.id} delay={(i % 3) * 0.05}>
-            <ProjectCard project={project} index={i} />
+            <ProjectCard project={project} />
           </Reveal>
         ))}
       </div>

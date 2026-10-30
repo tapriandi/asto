@@ -4,6 +4,7 @@ import "./globals.css";
 import SiteHeader from "@/app/components/chrome/SiteHeader";
 import SiteFooter from "@/app/components/chrome/SiteFooter";
 import SmoothScroll from "@/app/components/chrome/SmoothScroll";
+import Cursor from "@/app/components/chrome/Cursor";
 import { site } from "@/site.config";
 
 const interTight = Inter_Tight({
@@ -42,6 +43,7 @@ export default function RootLayout({
     >
       <body className="bg-ink text-bone">
         <SmoothScroll />
+        <Cursor />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

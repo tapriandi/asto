@@ -14,11 +14,12 @@ export default function Cursor() {
 
     const move = gsap.quickTo(el, "x", { duration: 0.35, ease: "power3" });
     const moveY = gsap.quickTo(el, "y", { duration: 0.35, ease: "power3" });
-    gsap.set(el, { xPercent: -50, yPercent: -50, opacity: 0 });
+    gsap.set(el, { xPercent: -50, yPercent: -50, opacity: 0, visibility: "hidden" });
 
     const onMove = (e: PointerEvent) => {
       move(e.clientX);
       moveY(e.clientY);
+      gsap.set(el, { visibility: "visible" });
       gsap.to(el, { opacity: 1, duration: 0.2, overwrite: true });
     };
 

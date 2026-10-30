@@ -9,16 +9,16 @@ export default function Hero() {
 
   return (
     <section className="flex min-h-[100svh] flex-col justify-between overflow-hidden pt-28">
-      <div className="site-shell">
+      <div className="site-shell grid flex-1 content-center py-16">
         <Reveal>
-          <div className="flex items-start justify-between gap-6">
-            <div className="max-w-[42rem]">
-              <h1 className="display-xl">{site.hero.lead}</h1>
-              <p className="mt-5 max-w-[27rem] text-xl leading-tight text-muted md:text-2xl">
-                {site.hero.headline}
-              </p>
+          <div className="grid grid-cols-1 items-end gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16">
+            <div className="max-w-[58rem]">
+              <p className="label mb-7">{site.brand.tagline}</p>
+              <h1 className="font-display text-[clamp(3rem,7.5vw,7rem)] font-medium leading-[0.94] tracking-[-0.035em]">
+                {site.hero.lead} <span className="text-muted">{site.hero.headline}</span>
+              </h1>
             </div>
-            <div className="hidden text-right md:block">
+            <div className="hidden min-w-44 pb-2 text-right md:block">
               <p className="label">{site.brand.location}</p>
               <p className="label mt-1"><SplashClock timeZone="Asia/Jakarta" /></p>
             </div>

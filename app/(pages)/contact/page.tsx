@@ -48,7 +48,7 @@ export default function ContactPage() {
           </Reveal>
         </div>
         <Reveal delay={0.05}>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 rounded-[2rem] bg-paper p-8 text-ink md:p-10" noValidate>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 rounded-[2rem] border border-line bg-white p-8 text-ink shadow-sm md:p-10" noValidate>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               <Field label="Nama" error={errors.name?.message}><input {...register("name")} placeholder="Nama Anda" /></Field>
               <Field label="Email" error={errors.email?.message}><input {...register("email")} type="email" placeholder="you@company.com" /></Field>

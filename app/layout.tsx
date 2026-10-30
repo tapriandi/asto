@@ -3,7 +3,6 @@ import { Inter, Inter_Tight, Chivo_Mono } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/app/components/chrome/SiteHeader";
 import SiteFooter from "@/app/components/chrome/SiteFooter";
-import Cursor from "@/app/components/chrome/Cursor";
 import SmoothScroll from "@/app/components/chrome/SmoothScroll";
 import { site } from "@/site.config";
 
@@ -43,7 +42,6 @@ export default function RootLayout({
     >
       <body className="bg-ink text-bone">
         <SmoothScroll />
-        <Cursor />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

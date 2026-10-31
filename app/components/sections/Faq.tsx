@@ -3,10 +3,10 @@ import Reveal from "@/app/components/primitives/Reveal";
 
 export default function Faq() {
   return (
-    <section className="py-[var(--spacing-section)]">
+    <section className="py-[var(--section-gap)]">
       <div className="site-shell grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
         <Reveal>
-          <h2 className="display-lg">FAQ.</h2>
+          <h2 className="display-section">FAQ.</h2>
         </Reveal>
         <div className="space-y-3">
           {site.faq.map((item, i) => (

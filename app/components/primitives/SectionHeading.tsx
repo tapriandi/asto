@@ -16,7 +16,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   const content = (
     <div className={`flex flex-wrap items-baseline justify-between gap-4 ${className}`}>
-      <h2 className="display-lg font-display">{title}</h2>
+      <h2 className="display-section font-display">{title}</h2>
       {meta ? <span className="label">{meta}</span> : null}
     </div>
   );

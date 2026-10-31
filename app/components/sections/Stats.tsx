@@ -4,10 +4,10 @@ import { site } from "@/site.config";
 
 export default function Stats() {
   return (
-    <section className="py-[var(--spacing-section)]">
+    <section className="py-[var(--section-gap)]">
       <div className="site-shell">
         <Reveal>
-          <div className="relative aspect-[1.646] overflow-hidden rounded-[2.5rem] bg-surface">
+          <div className="relative aspect-[1.646] overflow-hidden rounded-[2.5rem] bg-soft">
             <Image
               src="/img/hero/img-1.png"
               alt="Contoh visual digital Asto untuk bisnis lokal"
@@ -15,11 +15,11 @@ export default function Stats() {
               sizes="(max-width: 1520px) calc(100vw - 2rem), 1520px"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-ink/15" />
+            <div className="absolute inset-0 bg-fg/10" />
             <div className="absolute left-6 top-6 max-w-[26rem] md:left-10 md:top-10">
-              <span className="label text-bone">AstoDigi / Digital presence</span>
+              <span className="label text-fg">AstoDigi / Digital presence</span>
             </div>
-            <div className="absolute bottom-6 right-6 flex h-20 w-20 items-center justify-center rounded-full border border-bone/70 text-2xl text-bone md:bottom-10 md:right-10 md:h-28 md:w-28">
+            <div className="absolute bottom-6 right-6 flex h-20 w-20 items-center justify-center rounded-full border border-fg/40 text-2xl text-fg md:bottom-10 md:right-10 md:h-28 md:w-28">
               ↗
             </div>
           </div>
@@ -29,7 +29,7 @@ export default function Stats() {
           {site.stats.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 0.04}>
               <div className="border-t border-line pt-4">
-                <p className="display-md">{stat.value}</p>
+                <p className="display-lead">{stat.value}</p>
                 <p className="label mt-3 max-w-[23ch] leading-relaxed">{stat.label}</p>
               </div>
             </Reveal>

@@ -12,16 +12,19 @@ type RevealProps = {
   className?: string;
   delay?: number;
   y?: number;
-  as?: "div" | "section" | "li" | "article" | "section";
+  as?: "div" | "section" | "li" | "article";
+  /** Animate once when it enters the viewport. Set false for load animations. */
+  scroll?: boolean;
 };
 
-/** Fades + lifts children into view once, respecting reduced motion. */
+/** Bungee-style entrance: vertical offset + fade, once. */
 export default function Reveal({
   children,
   className,
   delay = 0,
-  y = 32,
+  y = 40,
   as = "div",
+  scroll = true,
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const Tag = as as any;
@@ -32,14 +35,19 @@ export default function Reveal({
       if (!el) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      gsap.from(el, {
+      const tween = {
         y,
         opacity: 0,
-        duration: 0.9,
+        duration: 0.85,
         delay,
         ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 88%", once: true },
-      });
+      };
+
+      if (scroll) {
+        gsap.from(el, { ...tween, scrollTrigger: { trigger: el, start: "top 92%", once: true } });
+      } else {
+        gsap.from(el, tween);
+      }
     },
     { scope: ref }
   );

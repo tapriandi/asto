@@ -3,8 +3,8 @@ import { Inter, Inter_Tight, Chivo_Mono } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/app/components/chrome/SiteHeader";
 import SiteFooter from "@/app/components/chrome/SiteFooter";
-import SmoothScroll from "@/app/components/chrome/SmoothScroll";
 import Cursor from "@/app/components/chrome/Cursor";
+import SmoothScroll from "@/app/components/chrome/SmoothScroll";
 import { site } from "@/site.config";
 
 const interTight = Inter_Tight({
@@ -29,7 +29,7 @@ const chivoMono = Chivo_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${site.brand.name} — Digital Studio`,
+  title: `${site.brand.name} — Studio Digital untuk UMKM`,
   description: site.statement,
 };
 
@@ -38,10 +38,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang="id"
       className={`${interTight.variable} ${inter.variable} ${chivoMono.variable}`}
     >
-      <body className="bg-ink text-bone">
+      <body className="bg-bg text-fg">
         <SmoothScroll />
         <Cursor />
         <SiteHeader />

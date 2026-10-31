@@ -6,7 +6,7 @@ export default function Statement() {
     <section className="py-8 md:py-16">
       <div className="site-shell">
         <Reveal>
-          <p className="display-lg max-w-[16ch]">{site.statement}</p>
+          <p className="display-section max-w-[16ch]">{site.statement}</p>
         </Reveal>
       </div>
     </section>

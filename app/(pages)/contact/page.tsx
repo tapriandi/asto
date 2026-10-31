@@ -31,12 +31,12 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="pb-[var(--spacing-section)] pt-36">
+    <section className="pb-[var(--section-gap)] pt-36">
       <div className="site-shell grid grid-cols-1 gap-16 lg:grid-cols-2">
         <div>
           <Reveal>
             <span className="label">( _05 ) Contact</span>
-            <h1 className="display-xl mt-6">Mari ngobrol.</h1>
+            <h1 className="display-section mt-6">Mari ngobrol.</h1>
             <p className="mt-8 max-w-[31ch] text-lg leading-relaxed text-muted">Ceritakan bisnis dan kebutuhan Anda. Form ini akan membuka draft WhatsApp untuk dikirim manual.</p>
           </Reveal>
           <Reveal delay={0.08}>
@@ -48,7 +48,7 @@ export default function ContactPage() {
           </Reveal>
         </div>
         <Reveal delay={0.05}>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 rounded-[2rem] border border-line bg-white p-8 text-ink shadow-sm md:p-10" noValidate>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 rounded-[2rem] border border-line bg-white p-8 text-fg shadow-sm md:p-10" noValidate>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               <Field label="Nama" error={errors.name?.message}><input {...register("name")} placeholder="Nama Anda" /></Field>
               <Field label="Email" error={errors.email?.message}><input {...register("email")} type="email" placeholder="you@company.com" /></Field>
@@ -58,7 +58,7 @@ export default function ContactPage() {
               <select {...register("budget")} defaultValue=""><option value="" disabled>Pilih kisaran</option>{budgets.map((budget) => <option key={budget} value={budget}>{budget}</option>)}</select>
             </Field>
             <Field label="Kebutuhan" error={errors.message?.message}><textarea {...register("message")} rows={5} placeholder="Website seperti apa yang Anda butuhkan?" /></Field>
-            <button type="submit" className="border border-ink px-7 py-4 text-lg transition-colors hover:bg-ink hover:text-bone" data-cursor="hover">Buka WhatsApp ↗</button>
+            <button type="submit" className="border border-fg px-7 py-4 text-lg transition-colors hover:bg-fg hover:text-bg" data-cursor="hover">Buka WhatsApp ↗</button>
           </form>
         </Reveal>
       </div>
@@ -67,5 +67,5 @@ export default function ContactPage() {
 }
 
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
-  return <label className="block"><span className="label text-ink/60">{label}</span><div className="mt-2 [&_input]:w-full [&_input]:border-b [&_input]:border-ink/20 [&_input]:bg-transparent [&_input]:py-3 [&_input]:outline-none [&_input]:placeholder:text-ink/40 [&_select]:w-full [&_select]:border-b [&_select]:border-ink/20 [&_select]:bg-transparent [&_select]:py-3 [&_select]:outline-none [&_textarea]:w-full [&_textarea]:resize-none [&_textarea]:border-b [&_textarea]:border-ink/20 [&_textarea]:bg-transparent [&_textarea]:py-3 [&_textarea]:outline-none [&_textarea]:placeholder:text-ink/40">{children}</div>{error ? <span className="mt-2 block text-xs text-red-600">{error}</span> : null}</label>;
+  return <label className="block"><span className="label text-muted-2">{label}</span><div className="mt-2 [&_input]:w-full [&_input]:border-b [&_input]:border-line [&_input]:bg-transparent [&_input]:py-3 [&_input]:outline-none [&_input]:placeholder:text-muted [&_select]:w-full [&_select]:border-b [&_select]:border-line [&_select]:bg-transparent [&_select]:py-3 [&_select]:outline-none [&_textarea]:w-full [&_textarea]:resize-none [&_textarea]:border-b [&_textarea]:border-line [&_textarea]:bg-transparent [&_textarea]:py-3 [&_textarea]:outline-none [&_textarea]:placeholder:text-muted">{children}</div>{error ? <span className="mt-2 block text-xs text-red-600">{error}</span> : null}</label>;
 }

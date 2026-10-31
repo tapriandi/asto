@@ -17,7 +17,7 @@ export default function MarqueeRow({ items, className = "", reverse = false }: M
         {row.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="label flex shrink-0 items-center gap-8 whitespace-nowrap px-8 py-2 text-bone"
+            className="label flex shrink-0 items-center gap-8 whitespace-nowrap px-8 py-2 text-fg"
           >
             {item}
             <span className="text-muted">✳</span>

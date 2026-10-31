@@ -5,11 +5,11 @@ import Reveal from "@/app/components/primitives/Reveal";
 
 export default function BlogPreview() {
   return (
-    <section className="py-[var(--spacing-section)]">
+    <section className="py-[var(--section-gap)]">
       <div className="site-shell">
         <Reveal>
           <div className="flex items-end justify-between gap-6 pb-12">
-            <h2 className="display-lg">From the Blog.</h2>
+            <h2 className="display-section">From the Blog.</h2>
             <Link href="/blog" className="line-hover text-base" data-cursor="hover">See all ↗</Link>
           </div>
         </Reveal>
@@ -17,7 +17,7 @@ export default function BlogPreview() {
           {site.posts.map((post, i) => (
             <Reveal key={post.title} delay={i * 0.05}>
               <Link href="/blog" className="group block" data-cursor="hover">
-                <div className="relative aspect-[1.2] overflow-hidden rounded-[1.5rem] bg-surface">
+                <div className="relative aspect-[1.2] overflow-hidden rounded-[1.5rem] bg-soft">
                   <Image
                     src={post.image}
                     alt=""

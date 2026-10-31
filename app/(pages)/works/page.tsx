@@ -18,10 +18,10 @@ export default function WorksPage() {
       : site.projects.filter((p) => p.category === active);
 
   return (
-    <section className="container-edge pb-[var(--spacing-section)] pt-40">
+    <section className="site-shell pb-[var(--section-gap)] pt-40">
       <Reveal>
         <span className="label">( _02 ) Works</span>
-        <h1 className="display-xl mt-6 max-w-[12ch] font-display">
+        <h1 className="display-section mt-6 max-w-[12ch] font-display">
           Selected work.
         </h1>
       </Reveal>
@@ -34,7 +34,7 @@ export default function WorksPage() {
               type="button"
               onClick={() => setActive(c)}
               className={`label transition-opacity ${
-                active === c ? "text-bone" : "text-muted hover:text-bone"
+                active === c ? "text-fg" : "text-muted hover:text-fg"
               }`}
               data-cursor="hover"
             >

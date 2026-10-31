@@ -48,7 +48,7 @@ export default function Cursor() {
       id="cursor"
       ref={ref}
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[9999] h-4 w-4 rounded-full bg-ink mix-blend-difference"
+      className="pointer-events-none fixed left-0 top-0 z-[9999] h-4 w-4 rounded-full bg-fg mix-blend-difference"
     />
   );
 }

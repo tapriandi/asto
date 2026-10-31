@@ -21,6 +21,6 @@ export default function SplashClock({ timeZone = "Asia/Jakarta" }: { timeZone?: 
   }, [timeZone]);
 
   return (
-    <span className="label tabular-nums text-bone">{now || "--:--:--"}</span>
+    <span className="label tabular-nums text-fg">{now || "--:--:--"}</span>
   );
 }

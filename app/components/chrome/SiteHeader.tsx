@@ -20,7 +20,7 @@ export default function SiteHeader() {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "bg-ink/90 backdrop-blur-md" : "bg-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "bg-bg/90 backdrop-blur-md" : "bg-transparent"}`}>
       <div className="site-shell flex min-h-20 items-center justify-between gap-5">
         <Link href="/" className="font-display text-xl tracking-tight" aria-label={`${site.brand.name} home`} data-cursor="hover">
           {site.brand.mark}
@@ -42,7 +42,7 @@ export default function SiteHeader() {
           {site.nav.map((item) => (
             <Link key={item.href} href={item.href} className="label">( _{item.no} ) {item.label}</Link>
           ))}
-          <a href={`mailto:${site.brand.email}`} className="label text-bone">{site.brand.email}</a>
+          <a href={`mailto:${site.brand.email}`} className="label text-fg">{site.brand.email}</a>
         </nav>
       ) : null}
     </header>

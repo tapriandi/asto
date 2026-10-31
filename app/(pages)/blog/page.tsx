@@ -4,17 +4,17 @@ import Reveal from "@/app/components/primitives/Reveal";
 
 export default function BlogPage() {
   return (
-    <section className="pb-[var(--spacing-section)] pt-36">
+    <section className="pb-[var(--section-gap)] pt-36">
       <Reveal>
         <span className="label">( _04 ) Blog</span>
-        <h1 className="display-xl mt-6 max-w-[12ch] font-display">Notes.</h1>
+        <h1 className="display-section mt-6 max-w-[12ch] font-display">Notes.</h1>
       </Reveal>
 
       <ul className="mt-14 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">
         {site.posts.map((post, i) => (
           <Reveal as="li" key={post.title} delay={(i % 2) * 0.06}>
             <article className="group" data-cursor="hover">
-              <div className="relative aspect-[16/10] overflow-hidden bg-surface">
+              <div className="relative aspect-[16/10] overflow-hidden bg-soft">
                 <Image
                   src={post.image}
                   alt={post.title}

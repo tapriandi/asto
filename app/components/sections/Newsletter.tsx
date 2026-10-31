@@ -11,16 +11,16 @@ export default function Newsletter() {
   const whatsapp = `https://wa.me/${site.brand.whatsapp}?text=${encodeURIComponent("Halo AstoDigi, saya ingin diskusi website untuk bisnis saya.")}`;
 
   return (
-    <section className="border-t border-line py-[var(--spacing-section)]">
+    <section className="border-t border-line py-[var(--section-gap)]">
       <div className="site-shell">
         <Reveal>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-end">
             <div>
               <span className="label">( LET&apos;S TALK )</span>
-              <h2 className="display-lg mt-5 max-w-[11ch]">Mari buat bisnis Anda terlihat.</h2>
+              <h2 className="display-section mt-5 max-w-[11ch]">Mari buat bisnis Anda terlihat.</h2>
             </div>
             <div className="md:text-right">
-              <a href={whatsapp} target="_blank" rel="noreferrer" className="display-md line-hover" data-cursor="hover">
+              <a href={whatsapp} target="_blank" rel="noreferrer" className="display-lead line-hover" data-cursor="hover">
                 Diskusi via WhatsApp ↗
               </a>
               <p className="label mt-4 max-w-[30rem] md:ml-auto">
@@ -49,7 +49,7 @@ export default function Newsletter() {
               placeholder={sent ? "Email tercatat di perangkat ini." : "Email untuk follow-up"}
               className="w-full bg-transparent py-2 text-lg outline-none placeholder:text-muted"
             />
-            <button type="submit" disabled={sent} className="label whitespace-nowrap text-bone disabled:opacity-40">
+            <button type="submit" disabled={sent} className="label whitespace-nowrap text-fg disabled:opacity-40">
               {sent ? "Done" : "Send →"}
             </button>
           </form>

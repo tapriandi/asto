@@ -1,17 +1,29 @@
 export type Project = {
   id: string;
+  slug: string;
   title: string;
   category: string;
   year: string;
   image: string;
   video?: string;
+  summary: string;
+  body: string[];
+  scope: string[];
 };
 
 export type Service = { no: string; title: string; desc: string; image: string };
 export type Stat = { value: string; label: string };
 export type Testimonial = { quote: string; name: string; role: string; image: string };
 export type Faq = { q: string; a: string };
-export type Post = { title: string; date: string; category: string; image: string };
+export type Post = {
+  slug: string;
+  title: string;
+  date: string;
+  category: string;
+  image: string;
+  excerpt: string;
+  body: string[];
+};
 export type NavItem = { no: string; label: string; href: string };
 
 export const site = {
@@ -42,16 +54,121 @@ export const site = {
     cta: "Diskusi via WhatsApp",
   },
   statement:
-    "Kami membantu UMKM hadir lebih profesional di internet — dengan website yang jelas, cepat, dan dibuat untuk mendatangkan inquiry atau order.",
+    "Kami membantu UMKM hadir lebih profesional di internet — website yang jelas, cepat, dan dibuat untuk mendatangkan inquiry atau order.",
+  metricLead: "AstoDigi® adalah studio digital yang membangun kehadiran online untuk bisnis lokal.",
   projects: [
-    { id: "01", title: "Website Bisnis", category: "Company profile", year: "Concept", image: "/img/projects/port-1.jpg" },
-    { id: "02", title: "Landing Page", category: "Campaign", year: "Concept", image: "/img/projects/port-2.jpg" },
-    { id: "03", title: "Toko Online", category: "E-commerce", year: "Concept", image: "/img/projects/port-3.jpg" },
-    { id: "04", title: "Brand Digital", category: "Branding", year: "Concept", image: "/img/projects/port-4.jpg" },
-    { id: "05", title: "Undangan Digital", category: "Event", year: "Concept", image: "/img/projects/port-5.jpg" },
-    { id: "06", title: "Web App", category: "Development", year: "Concept", image: "/img/projects/port-6.jpg" },
-    { id: "07", title: "Menu Digital", category: "Kuliner", year: "Concept", image: "/img/projects/port-7.jpg" },
-    { id: "08", title: "Portfolio Brand", category: "Creative", year: "Concept", image: "/img/projects/port-8.jpg" },
+    {
+      id: "01",
+      slug: "website-bisnis",
+      title: "Website Bisnis",
+      category: "Company profile",
+      year: "Concept",
+      image: "/img/projects/port-1.jpg",
+      summary: "Struktur halaman untuk memperkenalkan bisnis, layanan, dan cara menghubungi Anda.",
+      body: [
+        "Banyak bisnis lokal sudah punya produk yang kuat, tetapi informasi tentangnya tersebar di banyak tempat. Halaman company profile menyatukan semuanya.",
+        "Kami menyusun urutan informasi: siapa Anda, apa yang dikerjakan, bukti, dan langkah berikutnya. Setiap halaman punya satu tugas yang jelas.",
+      ],
+      scope: ["Struktur informasi", "Desain halaman", "Development responsif", "Setup dasar SEO"],
+    },
+    {
+      id: "02",
+      slug: "landing-page",
+      title: "Landing Page",
+      category: "Campaign",
+      year: "Concept",
+      image: "/img/projects/port-2.jpg",
+      summary: "Halaman satu fokus untuk produk, promo, atau campaign tertentu.",
+      body: [
+        "Landing page bekerja saat pesannya tunggal. Kami membuang distraksi dan menyisakan satu jalur menuju tindakan.",
+        "Cocok untuk peluncuran produk, promo musiman, atau iklan berbayar yang perlu halaman tujuan yang cepat dibuka.",
+      ],
+      scope: ["Penulisan pesan", "Desain satu jalur", "Form / CTA", "Pengukuran dasar"],
+    },
+    {
+      id: "03",
+      slug: "toko-online",
+      title: "Toko Online",
+      category: "E-commerce",
+      year: "Concept",
+      image: "/img/projects/port-3.jpg",
+      summary: "Katalog produk dan alur pemesanan yang sederhana untuk penjualan harian.",
+      body: [
+        "Toko online yang baik dimulai dari katalog yang mudah dipindai, bukan dari tema yang ramai.",
+        "Kami menyusun kategori, kartu produk, dan alur checkout agar pembeli tidak berhenti di tengah jalan.",
+      ],
+      scope: ["Katalog produk", "Halaman detail", "Alur checkout", "Integrasi pembayaran"],
+    },
+    {
+      id: "04",
+      slug: "brand-digital",
+      title: "Brand Digital",
+      category: "Branding",
+      year: "Concept",
+      image: "/img/projects/port-4.jpg",
+      summary: "Identitas visual dan aturan pemakaian yang konsisten di semua kanal.",
+      body: [
+        "Brand yang konsisten lebih mudah diingat. Kami menyiapkan sistem visual, bukan hanya satu logo.",
+        "Termasuk warna, tipografi, dan contoh penerapan pada website serta media sosial.",
+      ],
+      scope: ["Arah visual", "Tipografi & warna", "Panduan pemakaian", "Aset kanal digital"],
+    },
+    {
+      id: "05",
+      slug: "undangan-digital",
+      title: "Undangan Digital",
+      category: "Event",
+      year: "Concept",
+      image: "/img/projects/port-5.jpg",
+      summary: "Undangan acara yang rapi dibuka di ponsel dan mudah diteruskan.",
+      body: [
+        "Undangan digital sering dibuka dari tautan yang dibagikan lewat pesan. Karena itu ukuran dan kecepatan menjadi prioritas.",
+        "Kami menyusun alur informasi acara, lokasi, dan konfirmasi kehadiran dalam satu halaman ringkas.",
+      ],
+      scope: ["Struktur acara", "Desain mobile-first", "Peta & lokasi", "Konfirmasi kehadiran"],
+    },
+    {
+      id: "06",
+      slug: "web-app",
+      title: "Web App",
+      category: "Development",
+      year: "Concept",
+      image: "/img/projects/port-6.jpg",
+      summary: "Aplikasi berbasis web untuk merapikan proses kerja internal.",
+      body: [
+        "Saat pencatatan masih manual, informasi mudah hilang. Aplikasi web menyimpan data di satu tempat.",
+        "Kami mulai dari proses yang paling sering diulang, lalu membangun antarmuka yang mengikuti cara kerja tim Anda.",
+      ],
+      scope: ["Pemetaan proses", "Hak akses", "Antarmuka kerja", "Laporan dasar"],
+    },
+    {
+      id: "07",
+      slug: "menu-digital",
+      title: "Menu Digital",
+      category: "Kuliner",
+      year: "Concept",
+      image: "/img/projects/port-7.jpg",
+      summary: "Menu yang bisa diperbarui kapan saja tanpa cetak ulang.",
+      body: [
+        "Harga dan ketersediaan berubah lebih cepat dari jadwal cetak. Menu digital menyelesaikan masalah itu.",
+        "Pembeli memindai kode, menu terbuka, dan perubahan langsung terlihat.",
+      ],
+      scope: ["Kategori menu", "Kode QR", "Pembaruan konten", "Tampilan mobile"],
+    },
+    {
+      id: "08",
+      slug: "portfolio-brand",
+      title: "Portfolio Brand",
+      category: "Creative",
+      year: "Concept",
+      image: "/img/projects/port-8.jpg",
+      summary: "Halaman portfolio untuk menampilkan karya dan hasil kerja.",
+      body: [
+        "Portfolio yang kuat menunjukkan proses, bukan hanya hasil akhir. Kami menyusun studi kasus yang mudah dibaca.",
+        "Setiap proyek dijelaskan lewat konteks, apa yang dikerjakan, dan hasilnya.",
+      ],
+      scope: ["Struktur studi kasus", "Galeri visual", "Navigasi proyek", "Halaman detail"],
+    },
   ] as Project[],
   services: [
     { no: "001", title: "Website bisnis", desc: "Jelaskan bisnis, layanan, lokasi, dan cara menghubungi Anda dalam satu tempat yang meyakinkan.", image: "/img/marque/marque-1.jpg" },
@@ -78,14 +195,50 @@ export const site = {
     { q: "Apakah website bisa dikembangkan lagi?", a: "Bisa. Struktur dibuat agar dapat ditambah halaman, fitur, integrasi, atau katalog ketika kebutuhan bisnis bertambah." },
   ] as Faq[],
   posts: [
-    { title: "Kenapa bisnis kecil tetap butuh website?", date: "12 Feb 2025", category: "Strategy", image: "/img/blog/blog-1.jpg" },
-    { title: "Halaman pertama yang perlu dimiliki UMKM", date: "28 Jan 2025", category: "Website", image: "/img/blog/blog-2.jpg" },
-    { title: "Cara membuat brand terlihat lebih dipercaya", date: "09 Jan 2025", category: "Branding", image: "/img/blog/blog-3.jpg" },
+    {
+      slug: "kenapa-bisnis-kecil-butuh-website",
+      title: "Kenapa bisnis kecil tetap butuh website?",
+      date: "12 Feb 2025",
+      category: "Strategy",
+      image: "/img/blog/blog-1.jpg",
+      excerpt: "Media sosial membantu orang menemukan Anda. Website membuat mereka yakin untuk membeli.",
+      body: [
+        "Media sosial bekerja untuk ditemukan. Tetapi ketika calon pembeli ingin memastikan, mereka mencari satu tempat yang menjelaskan bisnis Anda secara utuh.",
+        "Website memberi ruang untuk menjelaskan layanan, harga, lokasi, dan bukti kerja tanpa dibatasi urutan unggahan.",
+        "Yang penting bukan jumlah halaman, tetapi kejelasan: apa yang Anda jual, untuk siapa, dan bagaimana cara membelinya.",
+      ],
+    },
+    {
+      slug: "halaman-pertama-umkm",
+      title: "Halaman pertama yang perlu dimiliki UMKM",
+      date: "28 Jan 2025",
+      category: "Website",
+      image: "/img/blog/blog-2.jpg",
+      excerpt: "Kalau baru mulai, tidak perlu sepuluh halaman. Mulai dari tiga yang paling sering dicari.",
+      body: [
+        "Tiga halaman pertama yang paling sering dibutuhkan: apa yang Anda kerjakan, bukti kerja, dan cara menghubungi.",
+        "Halaman layanan menjelaskan penawaran. Halaman bukti menunjukkan hasil. Halaman kontak menutup jaraknya.",
+        "Setelah tiga ini berjalan, halaman lain ditambahkan sesuai kebutuhan, bukan karena daftar contoh.",
+      ],
+    },
+    {
+      slug: "brand-terlihat-dipercaya",
+      title: "Cara membuat brand terlihat lebih dipercaya",
+      date: "09 Jan 2025",
+      category: "Branding",
+      image: "/img/blog/blog-3.jpg",
+      excerpt: "Kepercayaan datang dari konsistensi kecil: ejaan, jarak, warna, dan kecepatan halaman.",
+      body: [
+        "Kesan pertama terbentuk dalam hitungan detik. Sebagian besar dari kesan itu datang dari kerapian, bukan dari hiasan.",
+        "Tipografi yang konsisten, jarak yang cukup, dan warna yang tidak berlebihan membuat bisnis terlihat lebih mapan.",
+        "Halaman yang cepat dibuka juga bagian dari kepercayaan. Pembeli jarang menunggu lebih dari beberapa detik.",
+      ],
+    },
   ] as Post[],
   team: [],
   about: {
-    lead: "Website bukan pajangan. Ia harus membantu bisnis bergerak.",
-    body: "AstoDigi adalah partner digital untuk UMKM yang ingin punya presence online yang rapi, modern, dan mudah dikembangkan.",
+    lead: "AstoDigi adalah studio digital untuk bisnis lokal yang ingin hadir lebih meyakinkan di internet.",
+    body: "Kami mengerjakan struktur, desain, dan development untuk UMKM. Mulai dari website bisnis, landing page, undangan digital, sampai toko online dan aplikasi web. Semua dikerjakan dengan satu prinsip: halaman harus jelas dan berguna.",
     process: [
       { no: "01", title: "Pahami", desc: "Kami mulai dari bisnis, pelanggan, dan tujuan Anda — bukan dari template." },
       { no: "02", title: "Rancang", desc: "Kami susun pesan, struktur, visual, dan alur yang mudah dipahami." },

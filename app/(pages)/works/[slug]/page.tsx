@@ -20,31 +20,35 @@ export default async function ProjectDetailPage({
 
   const others = site.projects.filter((item) => item.slug !== slug).slice(0, 2);
 
+  const meta = [
+    { label: "Year", value: project.year },
+    { label: "Scope", value: project.category },
+    { label: "Timeline", value: project.timeline },
+    { label: "Status", value: "Live project" },
+  ];
+
   return (
     <>
-      <section className="pb-[var(--section-gap)] pt-36">
+      <section className="pt-36">
         <div className="site-shell">
           <Reveal>
-            <span className="label">( Case Study )</span>
-            <h1 className="mt-6 text-[clamp(3rem,9vw,8rem)] font-medium leading-[0.9] tracking-[-0.04em]">
+            <h1 className="text-[clamp(3rem,9vw,8rem)] font-medium leading-[0.9] tracking-[-0.04em]">
               {project.title}
             </h1>
           </Reveal>
 
-          <div className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-8 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
+          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start">
             <Reveal>
-              <p className="max-w-[52ch] text-xl leading-relaxed text-muted-2">{project.summary}</p>
+              <p className="max-w-[52ch] text-xl leading-relaxed text-muted-2">{project.intro}</p>
             </Reveal>
             <Reveal delay={0.06}>
-              <dl className="grid grid-cols-2 gap-6">
-                <div>
-                  <dt className="label">Year</dt>
-                  <dd className="mt-2 text-lg">{project.year}</dd>
-                </div>
-                <div>
-                  <dt className="label">Scope</dt>
-                  <dd className="mt-2 text-lg">{project.category}</dd>
-                </div>
+              <dl className="grid grid-cols-2 gap-x-6 gap-y-8">
+                {meta.map((item) => (
+                  <div key={item.label} className="border-t border-line pt-4">
+                    <dt className="label">{item.label}</dt>
+                    <dd className="mt-2 text-lg">{item.value}</dd>
+                  </div>
+                ))}
               </dl>
             </Reveal>
           </div>
@@ -62,13 +66,21 @@ export default async function ProjectDetailPage({
               <div className="absolute inset-0 bg-fg/10" />
             </div>
           </Reveal>
+        </div>
+      </section>
 
-          <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
-            <div>
-              <SplitText as="h2" scroll text="The brief." className="display-lead" />
+      <section className="py-[var(--section-gap)]">
+        <div className="site-shell">
+          <Reveal>
+            <span className="label">( Case Study )</span>
+            <SplitText as="h2" scroll text={project.title} className="display-section mt-6 max-w-[14ch]" />
+          </Reveal>
+
+          <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] md:gap-16">
+            <div className="space-y-8">
               {project.body.map((paragraph, i) => (
                 <Reveal key={i} delay={i * 0.05}>
-                  <p className="mt-6 max-w-[46ch] text-base leading-relaxed text-muted-2">{paragraph}</p>
+                  <p className="max-w-[62ch] text-lg leading-relaxed">{paragraph}</p>
                 </Reveal>
               ))}
             </div>

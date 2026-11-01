@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { site } from "@/site.config";
 import Reveal from "@/app/components/primitives/Reveal";
 import SplitText from "@/app/components/primitives/SplitText";
 import FillReveal from "@/app/components/primitives/FillReveal";
 import MarqueeRow from "@/app/components/primitives/MarqueeRow";
 
-/** Bungee About: centred statement, metric row, process, studio list. */
+/** Bungee About: centred statement, metric row, marquee, team, awards. */
 export default function AboutPage() {
   return (
     <>
@@ -40,49 +41,66 @@ export default function AboutPage() {
       <section className="py-[var(--section-gap)]">
         <div className="site-shell">
           <Reveal>
-            <SplitText as="h2" scroll text="Cara kami bekerja." className="display-section" />
+            <div className="flex flex-col gap-5">
+              <span className="label">THE TEAM</span>
+              <SplitText
+                as="h2"
+                scroll
+                text="Kami bekerja sama untuk mencapai target, lalu melangkah lebih jauh."
+                className="display-lead max-w-[24ch]"
+              />
+            </div>
           </Reveal>
-          <ol className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-3">
-            {site.about.process.map((step, i) => (
-              <Reveal as="li" key={step.no} delay={i * 0.06}>
-                <div className="flex h-full flex-col justify-between gap-16 rounded-[2rem] bg-soft p-8 md:p-10">
-                  <span className="label">( {step.no} )</span>
-                  <div>
-                    <h3 className="display-lead">{step.title}</h3>
-                    <p className="mt-4 max-w-[28ch] text-sm leading-relaxed text-muted-2">{step.desc}</p>
+
+          <ul className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {site.team.map((member, i) => (
+              <Reveal as="li" key={member.name} delay={i * 0.05}>
+                <div className="overflow-hidden rounded-[1.5rem] border border-line bg-bg p-3">
+                  <div className="relative aspect-[.86] overflow-hidden rounded-[0.75rem] bg-soft">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="px-3 pb-2 pt-4">
+                    <p className="text-lg font-medium">{member.name}</p>
+                    <p className="label mt-1">{member.role}</p>
                   </div>
                 </div>
               </Reveal>
             ))}
-          </ol>
+          </ul>
         </div>
       </section>
 
       <section className="pb-[var(--section-gap)]">
-        <div className="site-shell grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
+        <div className="site-shell">
           <Reveal>
-            <span className="label">( The Studio )</span>
-            <SplitText
-              as="h2"
-              scroll
-              text="Satu tim kecil, kerja yang rapi."
-              className="display-lead mt-6 max-w-[16ch]"
-            />
+            <div className="flex flex-col items-center gap-5 text-center">
+              <span className="label">AWARDS</span>
+              <SplitText
+                as="h2"
+                scroll
+                text="Kami bangga dengan beberapa penghargaan yang pernah kami raih."
+                className="display-lead max-w-[22ch] text-center"
+              />
+            </div>
           </Reveal>
-          <Reveal delay={0.06}>
-            <p className="max-w-[46ch] text-base leading-relaxed text-muted-2">
-              Kami sengaja menjaga tim tetap kecil supaya komunikasi langsung dan pengerjaan tidak berlapis.
-              Anda berbicara dengan orang yang benar-benar mengerjakan website Anda.
-            </p>
-            <ul className="mt-10 border-t border-line">
-              {["Struktur & konten", "Desain antarmuka", "Development", "Perawatan setelah rilis"].map((item) => (
-                <li key={item} className="flex items-baseline justify-between gap-4 border-b border-line py-4">
-                  <span>{item}</span>
-                  <span className="label">↗</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+
+          <ul className="mt-12 border-t border-line">
+            {site.awards.map((award, i) => (
+              <Reveal as="li" key={award.name + award.date} delay={i * 0.03}>
+                <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-line py-5">
+                  <span className="text-lg font-medium">{award.name}</span>
+                  <span className="label flex-1 text-left md:pl-8">{award.detail}</span>
+                  <span className="label shrink-0">{award.date}</span>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </section>
     </>

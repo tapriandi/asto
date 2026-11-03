@@ -15,7 +15,7 @@ export default function Stats() {
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-6">
             <FillReveal>
-              <span className="display-lead block max-w-[800px]">{site.metricLead}</span>
+              <span className="display-lead block max-w-[800px]">{site.statement}</span>
             </FillReveal>
           </div>
 
@@ -24,7 +24,7 @@ export default function Stats() {
               <div className="relative aspect-[1.646] w-full overflow-hidden rounded-[2.5rem] bg-soft">
                 <Image
                   src="/img/hero/img-1.png"
-                  alt="Contoh visual digital Asto untuk bisnis lokal"
+                  alt="Arah visual Asto untuk halaman bisnis lokal. Demo Concept."
                   fill
                   sizes="(max-width: 1520px) calc(100vw - 2rem), 1520px"
                   className="object-cover"

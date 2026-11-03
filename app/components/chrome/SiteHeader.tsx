@@ -17,7 +17,13 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  // Close the mobile menu on navigation. setState during render (not in an
+  // effect) avoids a cascading re-render after the route commits.
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    if (open) setOpen(false);
+  }
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "bg-bg/90 backdrop-blur-md" : "bg-transparent"}`}>
@@ -28,7 +34,7 @@ export default function SiteHeader() {
         <nav className="hidden items-center gap-4 md:flex" aria-label="Primary">
           {site.nav.map((item) => (
             <Link key={item.href} href={item.href} className="label line-hover" data-active={pathname === item.href ? "true" : undefined} data-cursor="hover">
-              ( _{item.no} ) {item.label}
+              {item.label}
             </Link>
           ))}
         </nav>

@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/site.config";
 import Reveal from "@/app/components/primitives/Reveal";
 import SplitText from "@/app/components/primitives/SplitText";
+
+export const metadata: Metadata = {
+  title: "Panduan Website & Bisnis Digital untuk Pemilik Usaha",
+  description:
+    "Panduan praktis seputar website, biaya, dan kehadiran digital untuk pemilik usaha di Indonesia — ditulis tanpa istilah teknis berlebihan.",
+  alternates: { canonical: "/blog" },
+};
 
 /** Bungee blog index: centred masthead, then ruled cards with image + copy. */
 export default function BlogPage() {
@@ -11,9 +19,9 @@ export default function BlogPage() {
       <div className="site-shell">
         <Reveal>
           <div className="flex flex-col items-center text-center">
-            <SplitText as="h1" text="Creative Dispatch" className="display-section" />
+            <SplitText as="h1" text="Panduan." className="display-section" />
             <p className="mt-6 max-w-[46ch] text-base leading-relaxed text-muted-2">
-              Setiap warna, kata, dan piksel berangkat dari strategi yang jelas untuk membantu bisnis bertumbuh.
+              Bahan bacaan sebelum Anda memutuskan membangun website: biaya, proses, dan hal yang sebaiknya Anda tahu lebih dulu.
             </p>
           </div>
         </Reveal>

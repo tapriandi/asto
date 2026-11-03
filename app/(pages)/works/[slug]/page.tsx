@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -7,6 +8,28 @@ import SplitText from "@/app/components/primitives/SplitText";
 
 export function generateStaticParams() {
   return site.projects.map((project) => ({ slug: project.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = site.projects.find((item) => item.slug === slug);
+  if (!project) return {};
+  return {
+    title: project.title,
+    description: project.intro,
+    alternates: { canonical: `/works/${project.slug}` },
+    openGraph: {
+      type: "article",
+      title: project.title,
+      description: project.intro,
+      url: `/works/${project.slug}`,
+      images: [{ url: project.image }],
+    },
+  };
 }
 
 export default async function ProjectDetailPage({
@@ -21,10 +44,10 @@ export default async function ProjectDetailPage({
   const others = site.projects.filter((item) => item.slug !== slug).slice(0, 2);
 
   const meta = [
-    { label: "Year", value: project.year },
-    { label: "Scope", value: project.category },
-    { label: "Timeline", value: project.timeline },
-    { label: "Status", value: "Live project" },
+    { label: "Tahun", value: project.year },
+    { label: "Kategori", value: project.category },
+    { label: "Durasi", value: project.timeline },
+    { label: "Status", value: project.label },
   ];
 
   return (
@@ -57,12 +80,15 @@ export default async function ProjectDetailPage({
             <div className="relative mt-14 aspect-[1.646] overflow-hidden rounded-[2.5rem] bg-soft">
               <Image
                 src={project.image}
-                alt={`${project.title} visual concept`}
+                alt={`${project.title} — Demo Concept`}
                 fill
                 priority
                 sizes="(max-width: 1520px) calc(100vw - 2rem), 1520px"
                 className="object-cover"
               />
+              <span className="absolute left-5 top-5 rounded-full bg-bg/90 px-4 py-2 text-xs font-medium tracking-wide text-fg">
+                Demo Concept
+              </span>
               <div className="absolute inset-0 bg-fg/10" />
             </div>
           </Reveal>
@@ -72,12 +98,24 @@ export default async function ProjectDetailPage({
       <section className="py-[var(--section-gap)]">
         <div className="site-shell">
           <Reveal>
-            <span className="label">( Case Study )</span>
+            <span className="label">( Demo Concept )</span>
             <SplitText as="h2" scroll text={project.title} className="display-section mt-6 max-w-[14ch]" />
           </Reveal>
 
-          <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] md:gap-16">
+          <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2">
+            <Reveal>
+              <h3 className="label">Tantangan</h3>
+              <p className="mt-4 max-w-[50ch] text-lg leading-relaxed">{project.challenge}</p>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h3 className="label">Solusi</h3>
+              <p className="mt-4 max-w-[50ch] text-lg leading-relaxed">{project.solution}</p>
+            </Reveal>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] md:gap-16">
             <div className="space-y-8">
+              <h3 className="label">Case Study</h3>
               {project.body.map((paragraph, i) => (
                 <Reveal key={i} delay={i * 0.05}>
                   <p className="max-w-[62ch] text-lg leading-relaxed">{paragraph}</p>
@@ -85,8 +123,14 @@ export default async function ProjectDetailPage({
               ))}
             </div>
             <Reveal delay={0.08}>
-              <span className="label">Scope of work</span>
-              <ul className="mt-6 border-t border-line">
+              <span className="label">Fitur utama</span>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {project.features.map((feature) => (
+                  <li key={feature} className="rounded-full bg-soft px-4 py-2 text-sm">{feature}</li>
+                ))}
+              </ul>
+              <span className="label mt-10 block">Cakupan kerja</span>
+              <ul className="mt-4 border-t border-line">
                 {project.scope.map((item) => (
                   <li key={item} className="flex items-baseline justify-between gap-4 border-b border-line py-4 text-base">
                     <span>{item}</span>
@@ -95,7 +139,7 @@ export default async function ProjectDetailPage({
                 ))}
               </ul>
               <Link href="/contact" className="mt-10 inline-block text-lg line-hover" data-cursor="hover">
-                Mulai proyek serupa ↗
+                Diskusikan kebutuhan serupa ↗
               </Link>
             </Reveal>
           </div>

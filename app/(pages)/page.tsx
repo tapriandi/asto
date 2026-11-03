@@ -3,7 +3,7 @@ import LatestProjects from "@/app/components/sections/LatestProjects";
 import Services from "@/app/components/sections/Services";
 import Statement from "@/app/components/sections/Statement";
 import Stats from "@/app/components/sections/Stats";
-import Testimonials from "@/app/components/sections/Testimonials";
+import Process from "@/app/components/sections/Process";
 import Faq from "@/app/components/sections/Faq";
 import BlogPreview from "@/app/components/sections/BlogPreview";
 import Newsletter from "@/app/components/sections/Newsletter";
@@ -16,7 +16,7 @@ export default function Home() {
       <Services />
       <Statement />
       <Stats />
-      <Testimonials />
+      <Process />
       <Faq />
       <BlogPreview />
       <Newsletter />

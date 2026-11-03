@@ -6,6 +6,6 @@ type LabelProps = {
 
 /** Small mono label — the "technical studio" voice used across the site. */
 export default function Label({ children, className = "", as = "span" }: LabelProps) {
-  const Tag = as as any;
+  const Tag = as as React.ElementType;
   return <Tag className={`label ${className}`}>{children}</Tag>;
 }

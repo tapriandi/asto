@@ -27,7 +27,7 @@ export default function Reveal({
   scroll = true,
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const Tag = as as any;
+  const Tag = as as React.ElementType;
 
   useGSAP(
     () => {

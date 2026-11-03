@@ -11,7 +11,7 @@ export default function Statement() {
           <p className="label mb-6">( _Studio )</p>
         </Reveal>
         <FillReveal>
-          <span className="display-section block max-w-[16ch]">{site.statement}</span>
+          <span className="display-section block max-w-[26ch]">{site.processStatement}</span>
         </FillReveal>
       </div>
     </section>

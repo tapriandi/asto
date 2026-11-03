@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,6 +7,28 @@ import Reveal from "@/app/components/primitives/Reveal";
 
 export function generateStaticParams() {
   return site.posts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = site.posts.find((item) => item.slug === slug);
+  if (!post) return {};
+  return {
+    title: post.title,
+    description: post.lead,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.lead,
+      url: `/blog/${post.slug}`,
+      images: [{ url: post.image }],
+    },
+  };
 }
 
 export default async function BlogDetailPage({

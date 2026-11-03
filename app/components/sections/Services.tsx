@@ -15,9 +15,9 @@ export default function Services() {
         <Reveal>
           <div className="flex items-end justify-between gap-6">
             <Link href="/contact" className="mb-1 shrink-0 text-base line-hover" data-cursor="hover">
-              Get in touch ↗
+              Diskusikan kebutuhan Anda ↗
             </Link>
-            <SplitText as="h2" scroll text="Services." className="display-section ml-auto text-right" />
+            <SplitText as="h2" scroll text="Layanan." className="display-section ml-auto text-right" />
           </div>
         </Reveal>
       </div>
@@ -36,15 +36,18 @@ export default function Services() {
                 alt=""
                 fill
                 sizes="15rem"
-                className="object-cover opacity-20 mix-blend-luminosity"
+                className="object-cover opacity-15 mix-blend-luminosity"
               />
               <div className="relative flex items-start justify-between">
                 <span className="label text-deep/70">( {service.no} )</span>
                 <span className="text-xl">↗</span>
               </div>
               <div className="relative">
-                <h3 className="display-lead max-w-[8ch] text-deep">{service.title}</h3>
+                <h3 className="display-lead max-w-[9ch] text-deep">{service.title}</h3>
                 <p className="mt-4 max-w-[26ch] text-sm leading-relaxed text-deep/70">{service.desc}</p>
+                <p className="mt-5 max-w-[26ch] border-t border-deep/20 pt-4 text-xs leading-relaxed text-deep/60">
+                  Cocok untuk: {service.fit}
+                </p>
               </div>
             </article>
           </Reveal>

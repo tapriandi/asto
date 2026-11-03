@@ -31,7 +31,7 @@ export default function SplitText({
   as = "p",
 }: SplitTextProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const Tag = as as any;
+  const Tag = as as React.ElementType;
   const words = text.split(" ");
 
   useGSAP(

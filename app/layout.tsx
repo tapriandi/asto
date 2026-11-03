@@ -29,8 +29,26 @@ const chivoMono = Chivo_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${site.brand.name} — Studio Digital untuk UMKM`,
+  metadataBase: new URL("https://astodigi.com"),
+  title: {
+    default: `${site.brand.name} — Studio Digital untuk UMKM`,
+    template: `%s — ${site.brand.name}`,
+  },
   description: site.statement,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: site.brand.name,
+    locale: "id_ID",
+    title: `${site.brand.name} — Studio Digital untuk UMKM`,
+    description: site.statement,
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.brand.name} — Studio Digital untuk UMKM`,
+    description: site.statement,
+  },
 };
 
 export default function RootLayout({

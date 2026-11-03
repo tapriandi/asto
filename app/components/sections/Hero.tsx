@@ -6,7 +6,7 @@ import Reveal from "@/app/components/primitives/Reveal";
 import SplitText from "@/app/components/primitives/SplitText";
 
 export default function Hero() {
-  const ticker = ["Website Bisnis", "Landing Page", "Undangan Digital", "Toko Online", "Web App"];
+  const ticker = site.hero.ticker;
 
   return (
     <section className="flex min-h-[92svh] flex-col">
@@ -26,12 +26,20 @@ export default function Hero() {
           as="p"
           delay={0.3}
           stagger={0.035}
+          text={site.hero.headline}
+          className="mt-8 max-w-[30rem] text-[clamp(1.1rem,1.8vw,1.5rem)] leading-[1.3] text-muted-2"
+        />
+
+        <SplitText
+          as="p"
+          delay={0.45}
+          stagger={0.035}
           text={site.statement}
-          className="mt-16 max-w-[62rem] text-[clamp(1.5rem,3vw,2.9rem)] font-medium leading-[1.12] tracking-[-0.02em]"
+          className="mt-10 max-w-[62rem] text-[clamp(1.5rem,3vw,2.9rem)] font-medium leading-[1.12] tracking-[-0.02em]"
         />
 
         <Reveal scroll={false} delay={0.9}>
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             <span className="label flex items-center gap-2">
               <span className="text-muted">ID</span>
               <SplashClock timeZone="Asia/Jakarta" />
@@ -50,8 +58,17 @@ export default function Hero() {
               </a>
             ))}
             <span className="label text-line">/</span>
-            <Link href="/contact" className="label line-hover text-fg" data-cursor="hover">
-              {site.hero.cta} ↗
+            <span className="label text-muted-2">{site.brand.location}</span>
+          </div>
+        </Reveal>
+        <Reveal scroll={false} delay={1}>
+          <div className="mt-7 flex justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 rounded-full border border-fg bg-fg px-7 py-3.5 text-base text-bg transition-colors hover:bg-transparent hover:text-fg"
+              data-cursor="hover"
+            >
+              {site.hero.cta} <span aria-hidden>↗</span>
             </Link>
           </div>
         </Reveal>

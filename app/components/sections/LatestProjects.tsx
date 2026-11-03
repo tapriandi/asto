@@ -10,8 +10,8 @@ export default function LatestProjects() {
       <div className="site-shell">
         <Reveal>
           <div className="flex items-end justify-between gap-6">
-            <SplitText as="h2" scroll text="Latest Projects." className="display-section" />
-            <span className="label shrink-0">( _©26 )</span>
+            <SplitText as="h2" scroll text="Karya terbaru." className="display-section" />
+            <span className="label shrink-0">( DEMO CONCEPT )</span>
           </div>
         </Reveal>
 
@@ -28,6 +28,9 @@ export default function LatestProjects() {
             <Link href="/works" className="text-lg line-hover" data-cursor="hover">
               Lihat semua project ↗
             </Link>
+            <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-muted-2">
+              Semua karya di atas adalah Demo Concept — dirancang untuk menunjukkan pendekatan kami, bukan pekerjaan klien.
+            </p>
           </div>
         </Reveal>
       </div>

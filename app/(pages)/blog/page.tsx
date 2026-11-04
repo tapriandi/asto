@@ -19,7 +19,8 @@ export default function BlogPage() {
       <div className="site-shell">
         <Reveal>
           <div className="flex flex-col items-center text-center">
-            <SplitText as="h1" text="Panduan." className="display-section" />
+            <span className="label">( _05 ) Blog</span>
+            <SplitText as="h1" text="Panduan." className="display-section mt-6" />
             <p className="mt-6 max-w-[46ch] text-base leading-relaxed text-muted-2">
               Bahan bacaan sebelum Anda memutuskan membangun website: biaya, proses, dan hal yang sebaiknya Anda tahu lebih dulu.
             </p>

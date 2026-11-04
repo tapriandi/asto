@@ -19,7 +19,7 @@ export default function Hero() {
         </Reveal>
 
         <Reveal scroll={false} delay={0.15} y={0}>
-          <p className="label mt-6 text-fg">{site.brand.tagline}</p>
+          <p className="label mt-6 text-fg">Asto®</p>
         </Reveal>
 
         <SplitText
@@ -27,15 +27,15 @@ export default function Hero() {
           delay={0.3}
           stagger={0.035}
           text={site.hero.headline}
-          className="mt-8 max-w-[30rem] text-[clamp(1.1rem,1.8vw,1.5rem)] leading-[1.3] text-muted-2"
+          className="mt-7 max-w-[46rem] text-[clamp(1.6rem,3.4vw,3.1rem)] font-medium leading-[1.1] tracking-[-0.02em]"
         />
 
         <SplitText
           as="p"
           delay={0.45}
           stagger={0.035}
-          text={site.statement}
-          className="mt-10 max-w-[62rem] text-[clamp(1.5rem,3vw,2.9rem)] font-medium leading-[1.12] tracking-[-0.02em]"
+          text={site.hero.subhead}
+          className="mt-7 max-w-[38rem] text-[clamp(1rem,1.5vw,1.25rem)] leading-[1.45] text-muted-2"
         />
 
         <Reveal scroll={false} delay={0.9}>

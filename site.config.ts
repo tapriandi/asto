@@ -28,6 +28,8 @@ export type Post = {
   image: string;
   excerpt: string;
   lead: string;
+  seoTitle: string;
+  metaDescription: string;
   body: string[];
 };
 export type Principle = { no: string; title: string; desc: string };
@@ -37,18 +39,18 @@ export const site = {
   brand: {
     name: "Astodigi",
     mark: "AstoDigi",
-    email: "hello@astodigi.com",
-    tagline: "Studio digital untuk bisnis lokal yang siap tumbuh.",
-    location: "South Tangerang / Indonesia",
-    // TODO: ganti nomor placeholder dengan nomor WhatsApp asli sebelum publikasi.
-    whatsapp: "62812xxxxxxxx",
+    email: "hallo@astodigi.com",
+    tagline: "Studio digital untuk bisnis yang ingin terlihat dan dipilih.",
+    location: "Kabupaten Tegal, Jawa Tengah",
+    whatsapp: "0857 0000 0000",
   },
   nav: [
     { no: "01", label: "Home", href: "/" },
     { no: "02", label: "Works", href: "/works" },
-    { no: "03", label: "About", href: "/about" },
-    { no: "04", label: "Blog", href: "/blog" },
-    { no: "05", label: "Contact", href: "/contact" },
+    { no: "03", label: "Services", href: "/services" },
+    { no: "04", label: "About", href: "/about" },
+    { no: "05", label: "Blog", href: "/blog" },
+    { no: "06", label: "Contact", href: "/contact" },
   ] as NavItem[],
   socials: [
     { label: "IG", href: "https://www.instagram.com/astodigi" },
@@ -56,8 +58,10 @@ export const site = {
     { label: "FB", href: "https://www.facebook.com/astodigi" },
   ],
   hero: {
-    lead: "AstoDigi",
+    lead: "Asto®",
     headline: "Studio digital untuk bisnis yang ingin terlihat dan dipilih.",
+    subhead:
+      "Kami merancang dan membangun website, aplikasi web, dan produk digital untuk individu, UMKM, startup, PT/CV, dan organisasi — dikerjakan langsung dari struktur sampai peluncuran.",
     cta: "Ceritakan kebutuhan Anda",
     ticker: [
       "Website Bisnis",
@@ -71,7 +75,7 @@ export const site = {
     ],
   },
   statement:
-    "Kami merancang dan membangun website, aplikasi web, dan produk digital untuk UMKM, perusahaan, organisasi, dan startup — dikerjakan langsung oleh tim kecil yang menangani struktur, desain, dan development sendiri.",
+    "Kami merancang dan membangun website, aplikasi web, dan produk digital untuk individu, UMKM, startup, PT/CV, dan organisasi — dikerjakan langsung dari struktur sampai peluncuran.",
   processStatement: "Setiap halaman yang kami bangun harus menjawab satu pertanyaan pelanggan Anda. Kalau tidak, itu hanya dekorasi.",
   projects: [
     {
@@ -81,7 +85,7 @@ export const site = {
       category: "Website bisnis",
       label: "Demo Concept",
       year: "2026",
-      timeline: "3 minggu",
+      timeline: "Disepakati sesuai lingkup",
       image: "/img/projects/port-1.jpg",
       intro:
         "Kedai kopi dengan pelanggan setia di satu kecamatan, tapi belum punya satu tempat untuk menjelaskan menu, jam buka, dan cerita di balik kedai.",
@@ -94,7 +98,7 @@ export const site = {
         "Kami menyusun urutan informasi dan memberi setiap bagian satu tugas yang jelas — tanpa halaman yang hanya berisi hiasan.",
         "Hasilnya satu halaman yang dibuka cepat dari ponsel, dengan menu mudah dipindai dan tombol pesan dalam jangkauan jempol.",
       ],
-      features: ["Menu berkategori", "Jam buka", "Peta lokasi", "Tombol WhatsApp", "Galeri ruang", "Versi ringan untuk jaringan lambat"],
+      features: ["Menu berkategori — Visualisasi", "Jam buka & peta lokasi — Visualisasi", "Tombol WhatsApp — Perlu verifikasi", "Galeri ruang & produk — Visualisasi", "Versi ringan untuk jaringan lambat — Konsep"],
       scope: ["Struktur informasi", "Desain halaman", "Development responsif", "Setup dasar SEO"],
     },
     {
@@ -104,7 +108,7 @@ export const site = {
       category: "E-commerce",
       label: "Demo Concept",
       year: "2026",
-      timeline: "4 minggu",
+      timeline: "Disepakati sesuai lingkup",
       image: "/img/projects/port-3.jpg",
       intro:
         "Toko roti yang menerima pesanan lewat pesan pribadi ingin mengumpulkan pesanan dalam satu alur tanpa menambah pekerjaan staf.",
@@ -117,7 +121,7 @@ export const site = {
         "Pembeli memilih, mengisi alamat, lalu menyelesaikan pesanan dalam beberapa ketukan.",
         "Pemilik toko mendapat satu daftar pesanan yang rapi setiap pagi, bukan ratusan percakapan yang tercampur.",
       ],
-      features: ["Katalog berkategori", "Varian & satuan", "Keranjang", "Checkout tanpa akun", "Konfirmasi WhatsApp", "Rekap pesanan harian", "Stok harian"],
+      features: ["Katalog berkategori + varian & satuan — Visualisasi", "Keranjang — Konsep", "Checkout tanpa akun — Konsep", "Konfirmasi via WhatsApp — Perlu verifikasi", "Rekap pesanan harian — Konsep", "Stok harian — Konsep"],
       scope: ["Katalog produk", "Halaman detail", "Alur pemesanan", "Rekap pesanan harian"],
     },
     {
@@ -127,7 +131,7 @@ export const site = {
       category: "Healthcare",
       label: "Demo Concept",
       year: "2026",
-      timeline: "5 minggu",
+      timeline: "Disepakati sesuai lingkup",
       image: "/img/projects/port-2.jpg",
       intro:
         "Klinik pratama dengan beberapa dokter jaga. Pasien sering menelepon hanya untuk tahu jadwal, biaya, dan cara mendaftar.",
@@ -139,8 +143,9 @@ export const site = {
         "Pasien mencari kepastian: jam berapa, dokter siapa, berapa biayanya, dan bagaimana mendaftar. Informasi ini harus bisa ditemukan tanpa menelepon.",
         "Kami menyusun halaman per layanan, bukan satu halaman panjang. Setiap layanan punya penjelasan singkat, jadwal, dan langkah berikutnya.",
         "Formulir pendaftaran dirancang sebagai permintaan, bukan konfirmasi langsung — staf tetap memverifikasi dan menghubungi pasien.",
+        "Catatan: Ini adalah konsep desain tampilan dan alur informasi, bukan sistem rekam medis elektronik. Demo ini tidak menyimpan atau mengelola data medis pasien.",
       ],
-      features: ["Jadwal dokter per poli", "Daftar layanan & estimasi biaya", "Alur pendaftaran", "Peta & jam operasional", "Halaman informasi BPJS/asuransi", "Pertanyaan umum"],
+      features: ["Jadwal dokter per poli — Visualisasi", "Daftar layanan & estimasi biaya — Visualisasi", "Alur pendaftaran (form) — Konsep", "Peta & jam operasional — Visualisasi", "Halaman informasi BPJS/asuransi — Visualisasi", "Pertanyaan umum — Visualisasi"],
       scope: ["Struktur layanan", "Jadwal dokter", "Alur pendaftaran", "Aksesibilitas dasar"],
     },
     {
@@ -150,7 +155,7 @@ export const site = {
       category: "Undangan digital",
       label: "Demo Concept",
       year: "2026",
-      timeline: "2 minggu",
+      timeline: "Disepakati sesuai lingkup",
       image: "/img/projects/port-5.jpg",
       intro:
         "Undangan cetak untuk sebagian tamu, tautan untuk daftar teman dan rekan kerja yang panjang. Yang dibutuhkan bukan desain mewah, melainkan halaman cepat dan jelas.",
@@ -163,7 +168,7 @@ export const site = {
         "Kami menyusun urutan informasi acara, lokasi, dan konfirmasi kehadiran dalam satu halaman ringkas. Gambar dikompresi agar tetap ringan di jaringan seluler.",
         "Tamu bisa membuka peta, menyimpan tanggal, dan mengirim konfirmasi tanpa membuat akun.",
       ],
-      features: ["Hitung mundur", "Detail acara", "Peta & navigasi", "Simpan ke kalender", "Konfirmasi kehadiran tanpa akun", "Galeri ringan", "Musik opsional dengan kontrol"],
+      features: ["Hitung mundur ke acara — Perlu verifikasi", "Detail acara — Visualisasi", "Peta & navigasi — Visualisasi", "Simpan ke kalender — Konsep", "Konfirmasi kehadiran tanpa akun — Konsep", "Galeri ringan — Visualisasi", "Musik opsional dengan kontrol — Konsep"],
       scope: ["Struktur acara", "Desain mobile-first", "Peta & lokasi", "Konfirmasi kehadiran"],
     },
     {
@@ -173,7 +178,7 @@ export const site = {
       category: "Aplikasi web",
       label: "Demo Concept",
       year: "2026",
-      timeline: "6 minggu",
+      timeline: "Disepakati sesuai lingkup",
       image: "/img/projects/port-6.jpg",
       intro:
         "Laundry yang mencatat pesanan di buku tulis. Saat dua orang mengambil pesanan bersamaan, catatan mudah tertukar dan pelanggan menunggu lebih lama.",
@@ -186,7 +191,7 @@ export const site = {
         "Kami mulai dari proses yang paling sering diulang: terima pesanan, tandai selesai, hubungi pelanggan. Antarmuka mengikuti cara kerja tim, bukan sebaliknya.",
         "Pemilik bisa melihat jumlah pesanan hari ini dan status setiap cucian tanpa bertanya ke kasir.",
       ],
-      features: ["Input pesanan cepat", "Status cucian", "Pencarian pelanggan", "Notifikasi WhatsApp saat siap", "Hak akses kasir & pemilik", "Rekap harian & mingguan", "Riwayat perubahan status"],
+      features: ["Input pesanan — Konsep", "Status cucian (diterima/dicuci/siap/diambil) — Konsep", "Pencarian pelanggan — Konsep", "Notifikasi WhatsApp saat siap — Konsep", "Hak akses kasir & pemilik — Konsep", "Rekap harian & mingguan — Konsep", "Riwayat perubahan status — Konsep"],
       scope: ["Pemetaan proses", "Hak akses", "Antarmuka kerja", "Rekap harian"],
     },
     {
@@ -196,7 +201,7 @@ export const site = {
       category: "Interactive 3D",
       label: "Demo Concept",
       year: "2026",
-      timeline: "5 minggu",
+      timeline: "Disepakati sesuai lingkup",
       image: "/img/projects/port-8.jpg",
       intro:
         "Brand yang meluncurkan satu produk fisik ingin calon pembeli bisa memeriksa detailnya dari segala sisi sebelum membeli.",
@@ -209,7 +214,7 @@ export const site = {
         "Model dibuat ringan agar tetap terbuka di jaringan seluler, dan halaman menyediakan fallback gambar saat perangkat tidak mendukung.",
         "Interaksi dibatasi pada yang berguna: memutar, memperbesar, mengganti varian, dan melihat keterangan bagian.",
       ],
-      features: ["Model 3D dapat diputar & di-zoom", "Penanda bagian produk", "Mode warna/varian", "Fallback gambar", "Pengukuran dimensi", "Tombol beli langsung"],
+      features: ["Model 3D diputar & di-zoom — Konsep", "Penanda bagian produk — Konsep", "Mode warna/varian — Konsep", "Fallback gambar — Konsep", "Ukuran dimensi — Konsep", "Tombol beli — Konsep"],
       scope: ["Aset 3D", "Interaksi di browser", "Optimasi performa", "Fallback gambar"],
     },
   ] as Project[],
@@ -218,21 +223,21 @@ export const site = {
       no: "001",
       title: "Website bisnis",
       desc: "Halaman yang menjelaskan siapa Anda, apa yang dikerjakan, dan bagaimana dihubungi — dalam satu alamat yang bisa dibagikan.",
-      fit: "UMKM, PT/CV, organisasi, praktik profesional.",
+      fit: "UMKM, PT/CV, organisasi, praktik profesional, personal brand.",
       image: "/img/marque/marque-1.jpg",
     },
     {
       no: "002",
       title: "E-commerce",
-      desc: "Katalog, keranjang, dan alur checkout yang dibuat mengikuti cara pelanggan Anda benar-benar berbelanja. Terhubung ke rekap pesanan harian.",
+      desc: "Katalog, keranjang, dan alur checkout yang mengikuti cara pelanggan Anda berbelanja, dengan rekap pesanan yang mudah diikuti pemilik.",
       fit: "Toko retail, kuliner, brand lokal yang mulai jualan online.",
       image: "/img/marque/marque-2.jpg",
     },
     {
       no: "003",
       title: "Aplikasi web",
-      desc: "Sistem internal atau layanan publik berbasis browser: pencatatan, pesanan, inventaris, booking, dashboard. Dibangun mengikuti alur kerja tim Anda.",
-      fit: "Bisnis yang masih mencatat manual atau memakai banyak spreadsheet.",
+      desc: "Sistem berbasis browser: pencatatan, pesanan, inventaris, booking, dashboard. Dibangun mengikuti alur kerja tim Anda, bukan sebaliknya.",
+      fit: "Bisnis atau organisasi yang masih bergantung pada pencatatan manual dan banyak spreadsheet.",
       image: "/img/marque/marque-3.jpg",
     },
     {
@@ -245,100 +250,64 @@ export const site = {
     {
       no: "005",
       title: "Maintenance & perawatan",
-      desc: "Perbarui konten, pantau uptime, perbaiki masalah, dan tambah halaman seiring bisnis berkembang. Bisa bulanan atau per kebutuhan.",
+      desc: "Pembaruan konten, pemeriksaan masalah, dan penyesuaian halaman seiring bisnis berkembang. Lingkup dan jadwal kerja disepakati per kebutuhan.",
       fit: "Website yang sudah aktif dan perlu dijaga.",
       image: "/img/marque/marque-1.jpg",
     },
     {
       no: "006",
       title: "Interactive 3D experience",
-      desc: "Pengalaman 3D interaktif di browser: produk yang bisa diputar, ruang virtual, atau landing page dengan animasi. Berjalan langsung tanpa aplikasi tambahan.",
+      desc: "Pengalaman 3D interaktif di browser: produk yang bisa diputar, ruang virtual, atau halaman peluncuran dengan animasi. Berjalan tanpa aplikasi tambahan.",
       fit: "Peluncuran produk, showroom, brand yang butuh pembeda visual.",
       image: "/img/marque/marque-2.jpg",
     },
     {
       no: "007",
       title: "Produk digital",
-      desc: "Template dan aset siap pakai untuk bisnis yang ingin memulai sendiri, dengan panduan pemasangan dan dukungan pembaruan.",
-      fit: "Pemilik bisnis yang ingin mulai cepat dengan biaya lebih ringan.",
+      desc: "Template dan aset siap pakai untuk Anda yang ingin memulai sendiri, dengan panduan pemasangan dan dukungan sesuai produknya.",
+      fit: "Pemilik usaha yang ingin mulai cepat dengan biaya lebih ringan.",
       image: "/img/marque/marque-3.jpg",
     },
   ] as Service[],
   stats: [
-    { value: "Struktur → Desain → Development", label: "Satu tim menangani seluruh alur. Tidak ada pergantian vendor di tengah jalan." },
-    { value: "5 Hari Kerja", label: "Untuk landing page dan undangan digital, pengerjaan bisa dimulai dari 5 hari kerja." },
-    { value: "2 Putaran Revisi", label: "Dua putaran revisi termasuk pada setiap paket. Revisi berikutnya dihitung jelas." },
-    { value: "100% Kepemilikan", label: "Source code, domain, dan hosting menjadi milik Anda setelah pelunasan." },
+    { value: "Satu alur kerja", label: "Struktur, desain, dan development ditangani tim yang sama — Anda tidak berpindah vendor." },
+    { value: "Bisa dimulai dari kecil", label: "Satu halaman pun cukup untuk memulai. Halaman lain ditambah ketika kebutuhan benar-benar ada." },
+    { value: "Bisa dibangun bertahap", label: "Struktur disiapkan agar bisa ditambah halaman, fitur, atau integrasi tanpa membangun ulang." },
+    { value: "Terbuka soal bauran", label: "Kalau kebutuhan cukup diselesaikan modul yang sudah ada, kami sampaikan — bukan memaksa membangun dari nol." },
   ] as Stat[],
   process: [
     {
       no: "01",
       title: "Pahami",
       body: "Kami mulai dari bisnis Anda, bukan dari template. Kami tanyakan siapa pelanggan Anda, apa yang paling sering ditanyakan, dan apa yang membuat mereka akhirnya menghubungi Anda.",
-      deliver: "Ringkasan tujuan + daftar halaman yang benar-benar dipakai.",
+      deliver: "Ringkasan tujuan dan daftar halaman yang akan dipakai.",
     },
     {
       no: "02",
       title: "Rancang",
-      body: "Pesan disusun sebelum visual. Kami tulis urutan informasi, lalu menerjemahkannya menjadi tata letak yang bisa dipindai dalam beberapa detik.",
-      deliver: "Struktur halaman + rancangan visual untuk direview.",
+      body: "Pesan disusun sebelum visual. Kami menuliskan urutan informasi, lalu menerjemahkannya menjadi tata letak yang bisa dipindai dalam beberapa detik.",
+      deliver: "Struktur halaman dan rancangan visual untuk direview.",
     },
     {
       no: "03",
       title: "Bangun & serahkan",
-      body: "Website dibangun, diuji di ponsel dan desktop, lalu diserahkan beserta akun dan aksesnya. Kami sertakan panduan singkat cara memperbarui konten.",
-      deliver: "Website aktif, akses penuh, dan catatan perawatan.",
+      body: "Website dibangun, diuji di ponsel dan desktop, lalu diserahkan bersama akun dan aksesnya. Kami sertakan catatan singkat cara memperbarui konten.",
+      deliver: "Website yang berjalan, akses, dan dokumentasi singkat.",
     },
   ] as ProcessNote[],
   faq: [
-    {
-      q: "Berapa biaya membuat website?",
-      a: "Biaya tergantung jumlah halaman, fitur, dan materi yang perlu dibuat. Landing page dan website bisnis satu halaman mulai dari kisaran Rp 5 juta. Toko online dan aplikasi web dihitung setelah kami tahu alur yang dibutuhkan. Estimasi tertulis diberikan sebelum pekerjaan dimulai.",
-    },
-    {
-      q: "Berapa lama pengerjaan?",
-      a: "Landing page dan undangan digital mulai 5 hari kerja. Website bisnis sekitar 2–3 minggu. Toko online 4 minggu. Aplikasi web dan pengalaman 3D dihitung setelah pemetaan kebutuhan.",
-    },
-    {
-      q: "Bagaimana alur pengerjaannya?",
-      a: "Kami mulai dengan diskusi kebutuhan, lanjut ke estimasi dan kesepakatan, lalu struktur dan rancangan, development, review bersama, dan peluncuran.",
-    },
-    {
-      q: "Berapa kali revisi dan apakah ada biaya tambahan?",
-      a: "Dua putaran revisi termasuk dalam setiap paket. Revisi pada tahap rancangan jauh lebih ringan daripada setelah development selesai. Revisi tambahan dihitung per jam dan disepakati lebih dulu.",
-    },
-    {
-      q: "Siapa yang memiliki source code, domain, dan hosting?",
-      a: "Anda. Setelah pelunasan, source code, domain, dan hosting menjadi milik Anda beserta seluruh akun dan aksesnya. Kami tidak menahan aset sebagai pengikat.",
-    },
-    {
-      q: "Apakah Anda membantu menulis konten?",
-      a: "Ya. Kami bantu merapikan struktur informasi dan menulis kerangka pesan. Materi seperti foto produk, daftar layanan, dan harga tetap dari Anda karena itu data yang paling akurat.",
-    },
-    {
-      q: "Apakah website bisa saya perbarui sendiri?",
-      a: "Bisa. Untuk halaman statis, kami sertakan panduan singkat. Untuk katalog dan konten yang sering berubah, kami bisa menyiapkan panel admin sederhana atau melatih tim Anda langsung.",
-    },
-    {
-      q: "Teknologi apa yang digunakan?",
-      a: "Umumnya Next.js dan Tailwind CSS untuk tampilan, dengan layanan basis data seperti Supabase bila diperlukan. Pilihan teknologi disesuaikan dengan kebutuhan Anda, bukan sebaliknya.",
-    },
-    {
-      q: "Saya sudah punya website. Bisa diperbaiki tanpa membuat ulang?",
-      a: "Bisa. Kami mulai dari penilaian cepat: masalah kecepatan, tampilan ponsel, dan struktur halaman. Kalau perbaikan sudah lebih mahal daripada membangun ulang, kami sampaikan terus terang.",
-    },
-    {
-      q: "Apakah Anda menyediakan maintenance setelah website selesai?",
-      a: "Ya, sebagai layanan terpisah. Isinya mencakup pembaruan konten, pemantauan uptime, perbaikan masalah, dan pencadangan berkala. Bisa bulanan atau per kebutuhan.",
-    },
-    {
-      q: "Bagaimana keamanan dan privasi data ditangani?",
-      a: "Data milik pelanggan Anda disimpan di layanan yang punya kendali akses berlapis. Untuk aplikasi yang menyimpan data pribadi, kami bahas penyimpanan dan siapa saja yang boleh mengaksesnya sebelum development.",
-    },
-    {
-      q: "Bagaimana cara memulai?",
-      a: "Kirim informasi tentang bisnis Anda, kebutuhan, dan referensi yang Anda suka lewat WhatsApp. Kami balas dengan arah pengerjaan, daftar kebutuhan, dan estimasi awal — tanpa biaya konsultasi.",
-    },
+    { q: "Berapa biaya membuat website?", a: "Biaya pembuatan website disesuaikan dengan kebutuhan, kompleksitas fitur, dan ruang lingkup pengerjaan. Kami akan memberikan estimasi tertulis sebelum proyek dimulai." },
+    { q: "Berapa lama pengerjaannya?", a: "Durasi tergantung jumlah halaman, fitur, dan kesiapan materi. Setelah lingkup kerja disepakati, kami menyampaikan perkiraan jadwal tertulis bersama estimasi biaya." },
+    { q: "Bagaimana alur pengerjaannya?", a: "Kami mulai dari diskusi kebutuhan, lanjut ke estimasi dan kesepakatan, lalu struktur dan rancangan, development, review bersama, dan peluncuran." },
+    { q: "Bagaimana kebijakan revisinya?", a: "Jumlah dan lingkup revisi disepakati di awal proyek. Revisi pada tahap rancangan biasanya lebih ringan daripada setelah development selesai. Perubahan di luar kesepakatan dihitung dan disetujui lebih dulu." },
+    { q: "Siapa yang memiliki source code, domain, dan hosting?", a: "Kepemilikan source code, domain, hosting, dan akses aset menjadi kebijakan resmi: ketentuannya dibahas sebelum proyek dimulai dan dicatat dalam kesepakatan kerja." },
+    { q: "Apakah Anda membantu menulis konten?", a: "Ya, sebatas merapikan struktur informasi dan menulis kerangka pesan. Materi seperti foto produk, daftar layanan, dan harga tetap dari Anda karena itu data yang paling akurat." },
+    { q: "Apakah website bisa saya perbarui sendiri?", a: "Untuk halaman statis, kami sertakan panduan singkat. Untuk katalog dan konten yang sering berubah, kami bisa menyiapkan panel admin sederhana atau melatih tim Anda langsung — tergantung lingkup yang disepakati." },
+    { q: "Teknologi apa yang digunakan?", a: "Umumnya Next.js dan Tailwind CSS untuk tampilan, dengan layanan basis data seperti Supabase bila diperlukan. Pilihan teknologi disesuaikan dengan kebutuhan Anda, bukan sebaliknya." },
+    { q: "Saya sudah punya website. Bisa diperbaiki tanpa membuat ulang?", a: "Bisa. Kami mulai dari penilaian singkat: kecepatan, tampilan ponsel, dan struktur halaman. Kalau perbaikan sudah lebih mahal daripada membangun ulang, kami sampaikan terus terang." },
+    { q: "Apakah tersedia layanan perawatan setelah website selesai?", a: "Tersedia sebagai layanan terpisah dengan lingkup dan jadwal yang disepakati per kebutuhan. Silakan sampaikan kebutuhan Anda untuk mendapat penawaran yang sesuai." },
+    { q: "Bagaimana keamanan dan privasi data ditangani?", a: "Untuk aplikasi yang menyimpan data, kami bahas lebih dulu data apa yang disimpan, siapa yang boleh mengaksesnya, dan di mana disimpan. Akses dibatasi sesuai kebutuhan peran pengguna." },
+    { q: "Bagaimana cara memulai?", a: "Kirim informasi tentang bisnis atau proyek Anda, kebutuhan, dan referensi yang Anda suka. Kami balas dengan arah pengerjaan, daftar kebutuhan, dan estimasi awal. Diskusi awal tidak dikenakan biaya." },
   ] as Faq[],
   posts: [
     {
@@ -350,6 +319,8 @@ export const site = {
       excerpt: "Harga website bisa berbeda sepuluh kali antar penawaran. Artikel ini menjelaskan komponen biaya yang sebenarnya Anda bayar.",
       lead:
         "Harga website bisa berbeda sepuluh kali antar penawaran. Artikel ini menjelaskan komponen biaya yang sebenarnya Anda bayar.",
+      seoTitle: "Berapa Biaya Membuat Website Bisnis? Panduan Komponen Harga",
+      metaDescription: "Rincian komponen biaya website bisnis — domain, hosting, desain, development, konten, dan perawatan — supaya Anda bisa membaca penawaran dengan lebih paham.",
       body: [
         "Saat meminta penawaran untuk website bisnis, Anda mungkin menerima angka yang sangat berbeda dari beberapa penyedia. Perbedaan itu tidak selalu berarti salah satunya menipu. Yang berbeda biasanya adalah cakupan pekerjaan dan apa yang dihitung sebagai biaya awal.",
         "Biaya pertama datang dari nama dan tempat website tinggal. Domain biasanya diperpanjang setiap tahun. Hosting membayar ruang server dan lebar data. Keduanya bisa murah untuk halaman sederhana, dan naik jika website memuat banyak gambar atau menjalankan sistem seperti toko online.",
@@ -367,6 +338,8 @@ export const site = {
       image: "/img/blog/blog-2.jpg",
       excerpt: "Keduanya bukan pilihan saling menggantikan. Yang menentukan adalah bagaimana pelanggan mencari Anda.",
       lead: "Keduanya bukan pilihan saling menggantikan. Yang menentukan adalah bagaimana pelanggan mencari Anda.",
+      seoTitle: "Website atau Media Sosial Saja? Panduan untuk Bisnis Kecil",
+      metaDescription: "Kapan bisnis masih cukup dengan media sosial, dan kapan website mulai diperlukan — termasuk cara memakai keduanya tanpa kerja dua kali.",
       body: [
         "Banyak bisnis kecil bertahan hanya dengan media sosial. Itu masuk akal: pembuatannya cepat, dan di sana pelanggan sudah berkumpul. Jadi kapan website benar-benar dibutuhkan?",
         "Media sosial sangat baik untuk ditemukan dan terlihat aktif. Yang tidak bisa dilakukannya adalah menjadi satu tempat yang Anda kendalikan sepenuhnya. Jangkauan bisa turun karena perubahan algoritma, akun bisa terkena pembatasan, dan riwayat konten lama sulit ditemukan kembali oleh pelanggan baru.",
@@ -384,6 +357,8 @@ export const site = {
       image: "/img/blog/blog-3.jpg",
       excerpt: "Kebanyakan website bisnis kecil kehilangan calon pembeli karena hal yang sederhana, bukan karena desainnya buruk.",
       lead: "Kebanyakan website bisnis kecil kehilangan calon pembeli karena hal yang sederhana, bukan karena desainnya buruk.",
+      seoTitle: "8 Kesalahan Umum pada Website Bisnis Kecil dan Cara Memperbaikinya",
+      metaDescription: "Delapan masalah yang paling sering ditemukan pada website bisnis kecil — dari kontak yang tersembunyi sampai halaman lambat — beserta perbaikan praktisnya.",
       body: [
         "Setelah melihat cukup banyak website bisnis kecil, polanya sering mirip. Masalahnya jarang terletak pada selera desain, dan lebih sering pada informasi yang tersembunyi atau langkah berikutnya yang tidak jelas.",
         "Pertama, nomor WhatsApp atau kontak tersembunyi di halaman terpisah. Pengunjung yang sudah tertarik sering berhenti mencari. Kontak yang baik terlihat di halaman utama dan di menu, tanpa perlu menggulir jauh.",
@@ -403,6 +378,8 @@ export const site = {
       image: "/img/blog/blog-4.jpg",
       excerpt: "Landing page dan website perusahaan menjawab pertanyaan yang berbeda. Memilih yang salah membuat biaya keluar tanpa hasil.",
       lead: "Landing page dan website perusahaan menjawab pertanyaan yang berbeda. Memilih yang salah membuat biaya keluar tanpa hasil.",
+      seoTitle: "Landing Page vs Website Perusahaan: Mana yang Anda Butuhkan?",
+      metaDescription: "Perbedaan tujuan, struktur, dan hasil landing page dan website perusahaan — beserta situasi yang membuat masing-masing pilihan tepat.",
       body: [
         "Landing page dan website perusahaan sering disebut sebagai dua pilihan tingkat, padahal keduanya menjawab pertanyaan yang berbeda. Landing page dirancang untuk satu tujuan: membuat pengunjung mengambil satu tindakan. Website perusahaan dirancang untuk menjawab banyak pertanyaan dari pelanggan yang berbeda.",
         "Landing page paling tepat saat Anda memperkenalkan satu produk, satu promo, atau satu campaign. Pengunjung datang dari satu tautan — bio media sosial atau iklan — dan sebaiknya tidak dialihkan ke halaman lain. Semua bagian diarahkan ke satu tindakan yang jelas.",
@@ -420,6 +397,8 @@ export const site = {
       image: "/img/blog/blog-1.jpg",
       excerpt: "Beberapa hal yang terlupakan sebelum peluncuran bisa membuat website tidak ditemukan atau tidak dipercaya.",
       lead: "Beberapa hal yang terlupakan sebelum peluncuran bisa membuat website tidak ditemukan atau tidak dipercaya.",
+      seoTitle: "Daftar Periksa Sebelum Website Bisnis Tayang",
+      metaDescription: "Periksa daftar ini sebelum website bisnis Anda diluncurkan — judul halaman, kecepatan, tampilan ponsel, formulir, dan hal yang sering terlewat.",
       body: [
         "Peluncuran website sering dianggap sebagai puncak pekerjaan. Kenyataannya, ada beberapa pemeriksaan sederhana yang menentukan apakah website benar-benar berguna setelah dibuka untuk umum.",
         "Mulailah dari judul dan deskripsi setiap halaman. Judul adalah yang pertama muncul di hasil pencarian dan di tab browser. Jika setiap halaman memakai judul yang sama, mesin pencari sulit membedakan isinya.",
@@ -433,41 +412,40 @@ export const site = {
     },
   ] as Post[],
   about: {
-    lead: "Asto® — studio digital yang membangun kehadiran online untuk bisnis lokal.",
+    lead: "Asto® — studio digital untuk individu, UMKM, startup, PT/CV, dan organisasi.",
     paragraphs: [
-      "Kami mengerjakan struktur, desain, dan development untuk UMKM, perusahaan, organisasi, dan startup. Mulai dari website bisnis, landing page, undangan digital, sampai toko online, aplikasi web, dan pengalaman 3D.",
-      "Setiap proyek dimulai dari pertanyaan yang sama: masalah apa yang Anda ingin selesaikan, dan siapa yang perlu diyakinkan. Dari situ kami menyusun informasi, merancang halaman, lalu membangunnya dengan satu prinsip: halaman harus jelas dan berguna.",
-      "Kami bekerja langsung dengan pemilik bisnis. Tidak ada lapisan perantara, sehingga keputusan bisa dibuat cepat dan Anda selalu tahu siapa yang mengerjakan apa.",
+      "Kami mengerjakan struktur, desain, dan development untuk beragam kebutuhan: website bisnis, landing page, toko online, undangan digital, sampai aplikasi web dan pengalaman 3D interaktif.",
+      "Setiap proyek dimulai dari pertanyaan yang sama: masalah apa yang ingin diselesaikan, dan siapa yang perlu diyakinkan. Dari situ kami menyusun informasi, merancang halaman, lalu membangunnya dengan satu prinsip — halaman harus jelas dan berguna.",
+      "Kami bekerja langsung dengan pemilik proyek. Tidak ada lapisan perantara, sehingga keputusan bisa dibuat cepat dan Anda tahu siapa yang mengerjakan apa.",
     ],
     principles: [
       {
         no: "01",
         title: "Jelas sebelum menarik",
-        desc: "Keindahan tanpa arah hanya dekorasi. Kami memastikan pengunjung paham Anda menawarkan apa sebelum mengagumi tampilannya.",
+        desc: "Keindahan tanpa arah hanya dekorasi. Pengunjung harus paham Anda menawarkan apa sebelum mengagumi tampilannya.",
       },
       {
         no: "02",
         title: "Ramah jaringan seluler",
-        desc: "Sebagian besar pembeli membuka website dari ponsel. Halaman dibuat ringan dan nampak rapi di layar kecil sejak awal.",
+        desc: "Sebagian besar pengunjung membuka website dari ponsel. Halaman dibuat ringan dan rapi di layar kecil sejak awal.",
       },
       {
         no: "03",
         title: "Terbuka soal bauran",
-        desc: "Kami sampaikan kalau kebutuhan Anda lebih baik ditangani modul yang sudah ada, bukan dibuat dari nol.",
+        desc: "Kalau kebutuhan Anda lebih baik ditangani modul yang sudah ada, kami sampaikan — bukan memaksa membangun dari nol.",
       },
       {
         no: "04",
-        title: "Anda memegang kendali",
-        desc: "Akun, domain, dan source code diserahkan sepenuhnya. Anda tidak terikat kepada kami untuk memperbarui website.",
+        title: "Bisa dikembangkan bertahap",
+        desc: "Struktur disiapkan agar halaman, fitur, dan integrasi bisa ditambah tanpa membangun ulang dari awal.",
       },
     ] as Principle[],
   },
   contact: {
-    email: "hello@astodigi.com",
-    // TODO: nomor telepon placeholder — ganti dengan nomor kontak asli sebelum publikasi.
-    phone: "+62 812-xxxx-xxxx",
-    address: "Pamulang, South Tangerang",
-    hours: "Mon–Fri, 09:00–18:00 WIB",
+    email: "hallo@astodigi.com",
+    phone: "0857 0000 0000 (placeholder)",
+    address: "Jl. Sri Gunting, RT 06 RW 05, Desa Pakulaut, Kecamatan Margasari, Kabupaten Tegal",
+    hours: "Senin–Jumat, 09.00–18.00 WIB",
   },
   footer: { bigLine: "Mari mulai dari yang penting.", copyright: "All rights reserved." },
 };

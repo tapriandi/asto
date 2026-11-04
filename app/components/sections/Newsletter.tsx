@@ -8,7 +8,7 @@ import Reveal from "@/app/components/primitives/Reveal";
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
-  const whatsapp = `https://wa.me/${site.brand.whatsapp}?text=${encodeURIComponent("Halo Astodigi, saya ingin diskusi website untuk bisnis saya.")}`;
+  const emailHref = `mailto:${site.contact.email}?subject=${encodeURIComponent("Diskusi kebutuhan website")}`;
 
   return (
     <section className="border-t border-line py-[var(--section-gap)]" id="kontak">
@@ -20,11 +20,11 @@ export default function Newsletter() {
               <h2 className="display-section mt-5 max-w-[16ch]">Siap mulai dari halaman yang paling penting?</h2>
             </div>
             <div className="md:text-right">
-              <a href={whatsapp} target="_blank" rel="noreferrer" className="display-lead line-hover" data-cursor="hover">
-                Diskusi via WhatsApp ↗
+              <a href={emailHref} className="display-lead line-hover" data-cursor="hover">
+                Diskusi via email ↗
               </a>
               <p className="mt-4 max-w-[32rem] text-sm leading-relaxed text-muted-2 md:ml-auto">
-                Kami balas dengan arah pengerjaan, daftar kebutuhan, dan estimasi durasi. Diskusi awal tidak dikenakan biaya.
+                Kami balas dengan arah pengerjaan, daftar kebutuhan, dan langkah berikutnya. Diskusi awal tidak dikenakan biaya.
               </p>
             </div>
           </div>

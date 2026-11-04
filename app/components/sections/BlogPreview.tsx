@@ -28,6 +28,7 @@ export default function BlogPreview() {
                 </div>
                 <p className="label mt-4">{post.category} / {post.date}</p>
                 <h3 className="mt-2 text-xl leading-tight">{post.title}</h3>
+                <p className="mt-3 max-w-[42ch] text-sm leading-relaxed text-muted-2">{post.excerpt}</p>
               </Link>
             </Reveal>
           ))}

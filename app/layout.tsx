@@ -31,25 +31,40 @@ const chivoMono = Chivo_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://astodigi.com"),
   title: {
-    default: `${site.brand.name} — Studio Digital untuk UMKM`,
+    default: "Astodigi — Studio Website, Aplikasi Web & Produk Digital",
     template: `%s — ${site.brand.name}`,
   },
-  description: site.statement,
+  description: "Studio digital untuk individu, UMKM, startup, PT/CV, dan organisasi. Kami merancang dan membangun website, aplikasi web, dan produk digital dari struktur sampai peluncuran.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: site.brand.name,
     locale: "id_ID",
-    title: `${site.brand.name} — Studio Digital untuk UMKM`,
-    description: site.statement,
+    title: "Astodigi — Studio Website, Aplikasi Web & Produk Digital",
+    description: "Studio digital untuk individu, UMKM, startup, PT/CV, dan organisasi.",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.brand.name} — Studio Digital untuk UMKM`,
-    description: site.statement,
+    title: "Astodigi — Studio Website, Aplikasi Web & Produk Digital",
+    description: "Studio digital untuk individu, UMKM, startup, PT/CV, dan organisasi.",
   },
 };
+
+const professionalService = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Astodigi",
+  url: "https://astodigi.com",
+  description: "Studio digital yang merancang dan membangun website, aplikasi web, dan produk digital.",
+  email: site.brand.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.contact.address,
+    addressCountry: "ID",
+  },
+};
+
 
 export default function RootLayout({
   children,
@@ -63,6 +78,7 @@ export default function RootLayout({
         <SmoothScroll />
         <Cursor />
         <SiteHeader />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalService).replace(/</g, "\\u003c") }} />
         <main>{children}</main>
         <SiteFooter />
       </body>

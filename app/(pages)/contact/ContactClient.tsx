@@ -21,13 +21,16 @@ export default function ContactClient() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver: yupResolver(schema) });
 
   const onSubmit = (values: FormValues) => {
-    const text = [
-      `Halo AstoDigi, saya ${values.name} dari ${values.company}.`,
+    const subject = `Kebutuhan proyek dari ${values.name}`;
+    const body = [
+      `Nama: ${values.name}`,
+      `Bisnis: ${values.company}`,
       `Email: ${values.email}`,
-      `Budget: ${values.budget}`,
+      `Kisaran budget: ${values.budget}`,
+      "",
       `Kebutuhan: ${values.message}`,
     ].join("\n");
-    window.open(`https://wa.me/${site.brand.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+    window.open(`mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_self");
   };
 
   return (
@@ -35,14 +38,14 @@ export default function ContactClient() {
       <div className="site-shell grid grid-cols-1 gap-16 lg:grid-cols-2">
         <div>
           <Reveal>
-            <span className="label">( _05 ) Contact</span>
+            <span className="label">( _06 ) Contact</span>
             <h1 className="display-section mt-6">Mari ngobrol.</h1>
-            <p className="mt-8 max-w-[31ch] text-lg leading-relaxed text-muted">Ceritakan bisnis dan kebutuhan Anda. Form ini akan membuka draft WhatsApp untuk dikirim manual.</p>
+            <p className="mt-8 max-w-[31ch] text-lg leading-relaxed text-muted">Ceritakan bisnis dan kebutuhan Anda. Form ini akan membuka draft email untuk dikirim manual.</p>
           </Reveal>
           <Reveal delay={0.08}>
             <dl className="mt-14 space-y-6 border-t border-line pt-8">
               <div><dt className="label">Email</dt><dd className="mt-2 text-xl"><a href={`mailto:${site.contact.email}`} className="line-hover">{site.contact.email}</a></dd></div>
-              <div><dt className="label">WhatsApp</dt><dd className="mt-2 text-xl">{site.brand.whatsapp}</dd></div>
+              <div><dt className="label">WhatsApp</dt><dd className="mt-2 text-xl">{site.contact.phone}</dd></div>
               <div><dt className="label">Studio</dt><dd className="mt-2 text-xl">{site.contact.address}</dd></div>
             </dl>
           </Reveal>
@@ -58,7 +61,7 @@ export default function ContactClient() {
               <select {...register("budget")} defaultValue=""><option value="" disabled>Pilih kisaran</option>{budgets.map((budget) => <option key={budget} value={budget}>{budget}</option>)}</select>
             </Field>
             <Field label="Kebutuhan" error={errors.message?.message}><textarea {...register("message")} rows={5} placeholder="Website seperti apa yang Anda butuhkan?" /></Field>
-            <button type="submit" className="border border-fg px-7 py-4 text-lg transition-colors hover:bg-fg hover:text-bg" data-cursor="hover">Buka WhatsApp ↗</button>
+            <button type="submit" className="border border-fg px-7 py-4 text-lg transition-colors hover:bg-fg hover:text-bg" data-cursor="hover">Buka draft email ↗</button>
           </form>
         </Reveal>
       </div>

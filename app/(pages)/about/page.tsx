@@ -7,7 +7,7 @@ import FillReveal from "@/app/components/primitives/FillReveal";
 import MarqueeRow from "@/app/components/primitives/MarqueeRow";
 
 export const metadata: Metadata = {
-  title: "Tentang Astodigi — Studio Digital di Tangerang Selatan",
+  title: "Tentang Astodigi — Studio Digital di Kabupaten Tegal",
   description:
     "Cara Astodigi bekerja: satu tim menangani struktur, desain, dan development. Prinsip kami sederhana — halaman harus jelas dan berguna.",
   alternates: { canonical: "/about" },
@@ -20,7 +20,7 @@ export default function AboutPage() {
       <section className="pt-36">
         <div className="site-shell flex flex-col items-center text-center">
           <Reveal>
-            <span className="label">( _03 ) About</span>
+            <span className="label">( _04 ) About</span>
           </Reveal>
           <FillReveal>
             <span className="display-section mt-8 block max-w-[24ch]">{site.about.lead}</span>

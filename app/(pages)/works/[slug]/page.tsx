@@ -115,7 +115,7 @@ export default async function ProjectDetailPage({
 
           <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] md:gap-16">
             <div className="space-y-8">
-              <h3 className="label">Case Study</h3>
+              <h3 className="label">Studi kasus</h3>
               {project.body.map((paragraph, i) => (
                 <Reveal key={i} delay={i * 0.05}>
                   <p className="max-w-[62ch] text-lg leading-relaxed">{paragraph}</p>
@@ -150,8 +150,8 @@ export default async function ProjectDetailPage({
         <div className="site-shell">
           <Reveal>
             <div className="flex items-end justify-between gap-6 pb-8">
-              <h2 className="display-section">More projects.</h2>
-              <Link href="/works" className="line-hover text-base" data-cursor="hover">See all ↗</Link>
+              <h2 className="display-section">Demo lainnya.</h2>
+              <Link href="/works" className="line-hover text-base" data-cursor="hover">Lihat semua ↗</Link>
             </div>
           </Reveal>
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2">

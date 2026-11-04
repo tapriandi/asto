@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Reveal from "@/app/components/primitives/Reveal";
-import SplitText from "@/app/components/primitives/SplitText";
 import FillReveal from "@/app/components/primitives/FillReveal";
 import { site } from "@/site.config";
 

@@ -37,7 +37,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
           />
         ) : null}
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/40 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <span className="label text-white">Preview concept</span>
+          <span className="label text-white">Lihat konsep</span>
           <span className="text-xl text-white">↗</span>
         </div>
       </div>

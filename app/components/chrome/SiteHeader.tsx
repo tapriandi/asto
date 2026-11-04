@@ -46,7 +46,7 @@ export default function SiteHeader() {
       {open ? (
         <nav id="mobile-nav" className="site-shell flex flex-col gap-5 border-t border-line py-6 lg:hidden" aria-label="Mobile">
           {site.nav.map((item) => (
-            <Link key={item.href} href={item.href} className="label">( _{item.no} ) {item.label}</Link>
+            <Link key={item.href} href={item.href} className="label">{item.label}</Link>
           ))}
           <a href={`mailto:${site.brand.email}`} className="label text-fg">{site.brand.email}</a>
         </nav>

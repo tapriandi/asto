@@ -18,13 +18,13 @@ export async function generateMetadata({
   const post = site.posts.find((item) => item.slug === slug);
   if (!post) return {};
   return {
-    title: post.title,
-    description: post.lead,
+    title: post.seoTitle,
+    description: post.metaDescription,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",
-      title: post.title,
-      description: post.lead,
+      title: post.seoTitle,
+      description: post.metaDescription,
       url: `/blog/${post.slug}`,
       images: [{ url: post.image }],
     },

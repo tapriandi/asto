@@ -412,7 +412,7 @@ export const site = {
     },
   ] as Post[],
   about: {
-    lead: "Asto® — studio digital untuk individu, UMKM, startup, PT/CV, dan organisasi.",
+    lead: "Halo, kami Astodigi — teman Anda membangun kehadiran digital, dari usaha rumahan sampai perusahaan.",
     paragraphs: [
       "Kami mengerjakan struktur, desain, dan development untuk beragam kebutuhan: website bisnis, landing page, toko online, undangan digital, sampai aplikasi web dan pengalaman 3D interaktif.",
       "Setiap proyek dimulai dari pertanyaan yang sama: masalah apa yang ingin diselesaikan, dan siapa yang perlu diyakinkan. Dari situ kami menyusun informasi, merancang halaman, lalu membangunnya dengan satu prinsip — halaman harus jelas dan berguna.",

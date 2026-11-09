@@ -20,10 +20,9 @@ export default function AboutPage() {
         <div className="site-shell flex flex-col items-center text-center">
           <Reveal>
             <span className="label">( _04 ) About</span>
-            <SplitText as="h1" text="Tentang Astodigi." className="display-section mt-6" />
           </Reveal>
           <Reveal delay={0.05}>
-            <p className="display-lead mt-8 max-w-[24ch]">{site.about.lead}</p>
+            <h1 className="display-section mt-6 max-w-[22ch]">{site.about.lead}</h1>
           </Reveal>
           <div className="mt-10 max-w-[60ch] space-y-5">
             {site.about.paragraphs.map((paragraph, i) => (

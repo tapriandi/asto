@@ -80,7 +80,7 @@ export default function Hero() {
             <article
               key={`${service.no}-${i}`}
               aria-hidden={i >= site.services.length}
-              className={`shape-card relative mr-3 flex h-44 w-64 shrink-0 flex-col justify-between overflow-hidden p-5 text-deep md:h-52 md:w-80 ${
+              className={`shape-card relative mr-3 flex h-[calc(var(--spacing)*100)] w-[calc(var(--spacing)*68)] shrink-0 flex-col justify-between overflow-hidden p-6 text-deep ${
                 i % site.services.length % 2 === 1 ? "shape-card--flip" : ""
               }`}
             >
@@ -88,7 +88,7 @@ export default function Hero() {
                 src={service.image}
                 alt=""
                 fill
-                sizes="(max-width: 768px) 16rem, 20rem"
+                sizes="17rem"
                 className="object-cover opacity-15 mix-blend-luminosity"
               />
               <div className="relative flex items-start justify-between">

@@ -6,12 +6,13 @@ import SplitText from "@/app/components/primitives/SplitText";
 
 export default function LatestProjects() {
   return (
-    <section className="section">
+    <section className="pb-10 pt-[var(--section-gap)] md:pb-14">
       <div className="site-shell">
         <Reveal>
           <div className="flex items-end justify-between gap-6">
             <SplitText as="h2" scroll text="Karya terbaru." className="display-section" />
-            <span className="label shrink-0">( Demo Concept )</span>          </div>
+            <span className="label shrink-0">( Demo Concept )</span>
+          </div>
         </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2">

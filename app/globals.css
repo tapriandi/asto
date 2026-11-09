@@ -149,29 +149,6 @@
     border-top-right-radius: 80px;
     border-bottom-left-radius: 80px;
   }
-
-  /* Text that fills in with a colour as it scrolls into view */
-  .fill-reveal {
-    position: relative;
-    display: inline-block;
-    color: var(--color-line);
-  }
-
-  .fill-reveal__inner {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    display: block;
-  }
-
-  .fill-reveal__fill {
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: var(--color-fg);
-    transform: translateX(-101%);
-    will-change: transform;
-  }
 }
 
 @layer utilities {

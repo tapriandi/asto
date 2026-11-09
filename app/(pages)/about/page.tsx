@@ -3,7 +3,6 @@ import Link from "next/link";
 import { site } from "@/site.config";
 import Reveal from "@/app/components/primitives/Reveal";
 import SplitText from "@/app/components/primitives/SplitText";
-import FillReveal from "@/app/components/primitives/FillReveal";
 import MarqueeRow from "@/app/components/primitives/MarqueeRow";
 
 export const metadata: Metadata = {
@@ -23,9 +22,9 @@ export default function AboutPage() {
             <span className="label">( _04 ) About</span>
             <SplitText as="h1" text="Tentang Astodigi." className="display-section mt-6" />
           </Reveal>
-          <FillReveal>
-            <span className="display-lead mt-8 block max-w-[24ch]">{site.about.lead}</span>
-          </FillReveal>
+          <Reveal delay={0.05}>
+            <p className="display-lead mt-8 max-w-[24ch]">{site.about.lead}</p>
+          </Reveal>
           <div className="mt-10 max-w-[60ch] space-y-5">
             {site.about.paragraphs.map((paragraph, i) => (
               <Reveal key={i} delay={0.08 + i * 0.04}>

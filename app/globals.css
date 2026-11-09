@@ -185,6 +185,22 @@
     animation-direction: reverse;
   }
 
+  .service-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: service-marquee 42s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes service-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
   @keyframes marquee {
     from {
       transform: translateX(0);
@@ -215,7 +231,8 @@
     scroll-behavior: auto;
   }
 
-  .marquee-track {
+  .marquee-track,
+  .service-marquee-track {
     animation: none;
   }
 

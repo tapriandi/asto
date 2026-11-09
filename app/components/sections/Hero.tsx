@@ -1,12 +1,12 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/site.config";
 import SplashClock from "@/app/components/chrome/SplashClock";
-import MarqueeRow from "@/app/components/primitives/MarqueeRow";
 import Reveal from "@/app/components/primitives/Reveal";
 import SplitText from "@/app/components/primitives/SplitText";
 
 export default function Hero() {
-  const ticker = site.hero.ticker;
+  const services = [...site.services, ...site.services];
 
   return (
     <section className="flex min-h-[92svh] flex-col">
@@ -74,8 +74,34 @@ export default function Hero() {
         </Reveal>
       </div>
 
-      <div className="border-y border-line py-3.5">
-        <MarqueeRow items={ticker} />
+      <div className="overflow-hidden border-y border-line py-3">
+        <div className="service-marquee-track" aria-label="Layanan Astodigi">
+          {services.map((service, i) => (
+            <article
+              key={`${service.no}-${i}`}
+              aria-hidden={i >= site.services.length}
+              className={`shape-card relative mr-3 flex h-44 w-64 shrink-0 flex-col justify-between overflow-hidden p-5 text-deep md:h-52 md:w-80 ${
+                i % site.services.length % 2 === 1 ? "shape-card--flip" : ""
+              }`}
+            >
+              <Image
+                src={service.image}
+                alt=""
+                fill
+                sizes="(max-width: 768px) 16rem, 20rem"
+                className="object-cover opacity-15 mix-blend-luminosity"
+              />
+              <div className="relative flex items-start justify-between">
+                <span className="label text-deep/70">( {service.no} )</span>
+                <span aria-hidden className="text-lg">↗</span>
+              </div>
+              <div className="relative">
+                <h2 className="text-xl font-medium leading-tight text-deep md:text-2xl">{service.title}</h2>
+                <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-deep/65 md:text-sm">{service.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

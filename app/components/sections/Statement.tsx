@@ -1,18 +1,14 @@
 import Reveal from "@/app/components/primitives/Reveal";
-import FillReveal from "@/app/components/primitives/FillReveal";
 import { site } from "@/site.config";
 
-/** Bungee-style statement block — colour sweeps in from the left on scroll. */
 export default function Statement() {
   return (
-    <section className="pb-[var(--section-gap)]">
+    <section className="py-12 md:py-16">
       <div className="site-shell">
         <Reveal>
           <p className="label mb-6">( _Studio )</p>
+          <p className="display-section max-w-[26ch]">{site.processStatement}</p>
         </Reveal>
-        <FillReveal>
-          <span className="display-section block max-w-[26ch]">{site.processStatement}</span>
-        </FillReveal>
       </div>
     </section>
   );

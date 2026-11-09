@@ -1,6 +1,5 @@
 import Hero from "@/app/components/sections/Hero";
 import LatestProjects from "@/app/components/sections/LatestProjects";
-import Statement from "@/app/components/sections/Statement";
 import Stats from "@/app/components/sections/Stats";
 import Process from "@/app/components/sections/Process";
 import Faq from "@/app/components/sections/Faq";
@@ -23,7 +22,6 @@ export default function Home() {
     <>
       <Hero />
       <LatestProjects />
-      <Statement />
       <Stats />
       <Process />
       <Faq />

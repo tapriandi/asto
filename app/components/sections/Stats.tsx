@@ -1,23 +1,12 @@
 import Image from "next/image";
 import Reveal from "@/app/components/primitives/Reveal";
-import FillReveal from "@/app/components/primitives/FillReveal";
 import { site } from "@/site.config";
 
-/**
- * Bungee's Metrics block: statement (max 800px) → wide media card (ratio 1.646,
- * radius 40) on a white panel → metric grid underneath.
- */
 export default function Stats() {
   return (
     <section className="pb-[var(--section-gap)]">
       <div className="site-shell">
         <div className="flex flex-col gap-10">
-          <div className="flex flex-col gap-6">
-            <FillReveal>
-              <span className="display-lead block max-w-[800px]">{site.statement}</span>
-            </FillReveal>
-          </div>
-
           <div className="flex flex-col gap-8 bg-bg">
             <Reveal>
               <div className="relative aspect-[1.646] w-full overflow-hidden rounded-[2.5rem] bg-soft">

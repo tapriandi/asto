@@ -5,7 +5,7 @@ import Reveal from "@/app/components/primitives/Reveal";
 
 export const metadata: Metadata = {
   title: "Layanan — Website, E-commerce & Aplikasi Web",
-  description: "Layanan Astodigi: website bisnis, e-commerce, aplikasi web, aplikasi mobile, maintenance, interactive 3D, dan produk digital.",
+  description: "Layanan Astodigi: fondasi kehadiran digital, website bisnis, e-commerce, aplikasi web, aplikasi mobile, maintenance, interactive 3D, dan produk digital.",
   alternates: { canonical: "/services" },
 };
 
@@ -23,7 +23,10 @@ export default function ServicesPage() {
               <article className="grid gap-8 py-8 md:grid-cols-[5rem_1fr_1fr_12rem] md:items-center">
                 <span className="label">({service.no})</span>
                 <div>
-                  <h2 className="text-2xl font-medium">{service.title}</h2>
+                  <h2 className="text-2xl font-medium">
+                    {service.title}
+                    {service.featured ? <span className="label ml-3 align-middle">( Paling dicari )</span> : null}
+                  </h2>
                   <p className="mt-3 max-w-[42ch] text-muted-2">{service.desc}</p>
                 </div>
                 <p className="text-sm leading-relaxed text-muted-2"><span className="label">Cocok untuk</span><br />{service.fit}</p>

@@ -16,7 +16,7 @@ export type Project = {
   timeline: string;
 };
 
-export type Service = { no: string; title: string; desc: string; fit: string; image: string };
+export type Service = { no: string; title: string; desc: string; fit: string; image: string; featured?: boolean };
 export type Stat = { value: string; label: string };
 export type ProcessNote = { no: string; title: string; body: string; deliver: string };
 export type Faq = { q: string; a: string };
@@ -221,48 +221,59 @@ export const site = {
   services: [
     {
       no: "001",
+      title: "Fondasi kehadiran digital",
+      desc: "Google Business Profile dan WhatsApp Business disiapkan rapi: kategori, jam buka, foto, katalog, dan balasan cepat — supaya usaha Anda ditemukan dan mudah dihubungi.",
+      fit: "UMKM yang belum muncul di Google Maps atau masih memakai WhatsApp biasa.",
+      image: "/img/marque/marque-4.jpg",
+      featured: true,
+    },
+    {
+      no: "002",
       title: "Website bisnis",
       desc: "Halaman yang menjelaskan siapa Anda, apa yang dikerjakan, dan bagaimana dihubungi — dalam satu alamat yang bisa dibagikan.",
       fit: "UMKM, PT/CV, organisasi, praktik profesional, personal brand.",
       image: "/img/marque/marque-1.jpg",
+      featured: true,
     },
     {
-      no: "002",
+      no: "003",
       title: "E-commerce",
       desc: "Katalog, keranjang, dan alur checkout yang mengikuti cara pelanggan Anda berbelanja, dengan rekap pesanan yang mudah diikuti pemilik.",
       fit: "Toko retail, kuliner, brand lokal yang mulai jualan online.",
       image: "/img/marque/marque-2.jpg",
+      featured: true,
     },
     {
-      no: "003",
+      no: "004",
       title: "Aplikasi web",
       desc: "Sistem berbasis browser: pencatatan, pesanan, inventaris, booking, dashboard. Dibangun mengikuti alur kerja tim Anda, bukan sebaliknya.",
       fit: "Bisnis atau organisasi yang masih bergantung pada pencatatan manual dan banyak spreadsheet.",
       image: "/img/marque/marque-3.jpg",
     },
     {
-      no: "004",
+      no: "005",
       title: "Aplikasi mobile",
       desc: "Aplikasi Android/iOS atau PWA untuk kebutuhan yang harus tersedia di ponsel pelanggan atau tim lapangan.",
       fit: "Layanan langganan, tim lapangan, aplikasi pelanggan.",
       image: "/img/marque/marque-4.jpg",
     },
     {
-      no: "005",
+      no: "006",
       title: "Maintenance & perawatan",
       desc: "Pembaruan konten, pemeriksaan masalah, dan penyesuaian halaman seiring bisnis berkembang. Lingkup dan jadwal kerja disepakati per kebutuhan.",
       fit: "Website yang sudah aktif dan perlu dijaga.",
       image: "/img/marque/marque-1.jpg",
+      featured: true,
     },
     {
-      no: "006",
+      no: "007",
       title: "Interactive 3D experience",
       desc: "Pengalaman 3D interaktif di browser: produk yang bisa diputar, ruang virtual, atau halaman peluncuran dengan animasi. Berjalan tanpa aplikasi tambahan.",
       fit: "Peluncuran produk, showroom, brand yang butuh pembeda visual.",
       image: "/img/marque/marque-2.jpg",
     },
     {
-      no: "007",
+      no: "008",
       title: "Produk digital",
       desc: "Template dan aset siap pakai untuk Anda yang ingin memulai sendiri, dengan panduan pemasangan dan dukungan sesuai produknya.",
       fit: "Pemilik usaha yang ingin mulai cepat dengan biaya lebih ringan.",

@@ -6,7 +6,8 @@ import Reveal from "@/app/components/primitives/Reveal";
 import SplitText from "@/app/components/primitives/SplitText";
 
 export default function Hero() {
-  const services = [...site.services, ...site.services];
+  const featured = site.services.filter((service) => service.featured);
+  const services = [...featured, ...featured];
 
   return (
     <section className="flex min-h-[92svh] flex-col">
@@ -79,9 +80,9 @@ export default function Hero() {
           {services.map((service, i) => (
             <article
               key={`${service.no}-${i}`}
-              aria-hidden={i >= site.services.length}
+              aria-hidden={i >= featured.length}
               className={`shape-card relative mr-3 flex h-[calc(var(--spacing)*100)] w-[calc(var(--spacing)*68)] shrink-0 flex-col justify-between overflow-hidden p-6 text-deep ${
-                i % site.services.length % 2 === 1 ? "shape-card--flip" : ""
+                i % featured.length % 2 === 1 ? "shape-card--flip" : ""
               }`}
             >
               <Image

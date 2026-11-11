@@ -61,8 +61,8 @@ export const site = {
     lead: "Asto®",
     headline: "Studio digital untuk bisnis yang ingin terlihat dan dipilih.",
     subhead:
-      "Kami merancang dan membangun website, aplikasi web, dan produk digital untuk individu, UMKM, startup, PT/CV, dan organisasi — dikerjakan langsung dari struktur sampai peluncuran.",
-    cta: "Ceritakan kebutuhan Anda",
+      "Kami bantu usaha kecil ditemukan di Google, dipercaya lewat website, dan dihubungi lewat WhatsApp.",
+    cta: "Cek gratis: apakah usaha Anda muncul di Google?",
     ticker: [
       "Website Bisnis",
       "Landing Page",
@@ -221,8 +221,8 @@ export const site = {
   services: [
     {
       no: "001",
-      title: "Fondasi kehadiran digital",
-      desc: "Google Business Profile dan WhatsApp Business disiapkan rapi: kategori, jam buka, foto, katalog, dan balasan cepat — supaya usaha Anda ditemukan dan mudah dihubungi.",
+      title: "Muncul di Google Maps & WhatsApp",
+      desc: "Profil Google dan WhatsApp Business disiapkan rapi: kategori, jam buka, foto, katalog, dan balasan cepat — supaya usaha Anda ditemukan dan mudah dihubungi.",
       fit: "UMKM yang belum muncul di Google Maps atau masih memakai WhatsApp biasa.",
       image: "/img/marque/marque-4.jpg",
       featured: true,
@@ -281,10 +281,10 @@ export const site = {
     },
   ] as Service[],
   stats: [
-    { value: "Satu alur kerja", label: "Struktur, desain, dan development ditangani tim yang sama — Anda tidak berpindah vendor." },
-    { value: "Bisa dimulai dari kecil", label: "Satu halaman pun cukup untuk memulai. Halaman lain ditambah ketika kebutuhan benar-benar ada." },
-    { value: "Bisa dibangun bertahap", label: "Struktur disiapkan agar bisa ditambah halaman, fitur, atau integrasi tanpa membangun ulang." },
-    { value: "Terbuka soal bauran", label: "Kalau kebutuhan cukup diselesaikan modul yang sudah ada, kami sampaikan — bukan memaksa membangun dari nol." },
+    { value: "Ditemukan", label: "Profil Google dan WhatsApp disiapkan supaya orang yang mencari di sekitar Anda menemukan usaha Anda, bukan kompetitor." },
+    { value: "Dipercaya", label: "Halaman yang menjelaskan siapa Anda dan apa yang dikerjakan — supaya calon pelanggan yakin sebelum menghubungi." },
+    { value: "Dihubungi", label: "Satu tombol WhatsApp dan satu alamat yang bisa dibagikan, tanpa calon pelanggan harus bertanya dulu." },
+    { value: "Dirawat", label: "Konten, jam buka, dan foto diperbarui seiring bisnis berjalan — supaya informasi tidak pernah usang." },
   ] as Stat[],
   process: [
     {

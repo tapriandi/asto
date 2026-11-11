@@ -9,26 +9,24 @@ import Reveal from "@/app/components/primitives/Reveal";
 const schema = yup.object({
   name: yup.string().required("Nama wajib diisi"),
   email: yup.string().email("Format email belum benar").required("Email wajib diisi"),
-  company: yup.string().required("Nama bisnis wajib diisi"),
-  budget: yup.string().required("Pilih kisaran budget"),
-  message: yup.string().required("Ceritakan kebutuhan Anda"),
+  company: yup.string().required("Nama usaha wajib diisi"),
+  city: yup.string().required("Kota wajib diisi"),
+  message: yup.string(),
 });
 
 type FormValues = yup.InferType<typeof schema>;
-const budgets = ["Di bawah Rp 5jt", "Rp 5–15jt", "Rp 15–50jt", "Di atas Rp 50jt"];
 
 export default function ContactClient() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver: yupResolver(schema) });
 
   const onSubmit = (values: FormValues) => {
-    const subject = `Kebutuhan proyek dari ${values.name}`;
+    const subject = `Cek gratis Google Maps — ${values.company}`;
     const body = [
       `Nama: ${values.name}`,
-      `Bisnis: ${values.company}`,
+      `Usaha: ${values.company}`,
+      `Kota: ${values.city}`,
       `Email: ${values.email}`,
-      `Kisaran budget: ${values.budget}`,
-      "",
-      `Kebutuhan: ${values.message}`,
+      ...(values.message ? ["", `Catatan: ${values.message}`] : []),
     ].join("\n");
     window.open(`mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_self");
   };
@@ -39,8 +37,8 @@ export default function ContactClient() {
         <div>
           <Reveal>
             <span className="label">( _06 ) Contact</span>
-            <h1 className="display-section mt-6">Mari ngobrol.</h1>
-            <p className="mt-8 max-w-[31ch] text-lg leading-relaxed text-muted">Ceritakan bisnis dan kebutuhan Anda. Form ini akan membuka draft email untuk dikirim manual.</p>
+            <h1 className="display-section mt-6">Cek gratis.</h1>
+            <p className="mt-8 max-w-[31ch] text-lg leading-relaxed text-muted">Isi nama usaha dan kota Anda. Usaha Anda akan dicek apakah sudah muncul di Google Maps, lalu dibalas lewat email.</p>
           </Reveal>
           <Reveal delay={0.08}>
             <dl className="mt-14 space-y-6 border-t border-line pt-8">
@@ -56,12 +54,12 @@ export default function ContactClient() {
               <Field label="Nama" error={errors.name?.message}><input {...register("name")} placeholder="Nama Anda" /></Field>
               <Field label="Email" error={errors.email?.message}><input {...register("email")} type="email" placeholder="you@company.com" /></Field>
             </div>
-            <Field label="Nama bisnis" error={errors.company?.message}><input {...register("company")} placeholder="Nama bisnis" /></Field>
-            <Field label="Budget" error={errors.budget?.message}>
-              <select {...register("budget")} defaultValue=""><option value="" disabled>Pilih kisaran</option>{budgets.map((budget) => <option key={budget} value={budget}>{budget}</option>)}</select>
-            </Field>
-            <Field label="Kebutuhan" error={errors.message?.message}><textarea {...register("message")} rows={5} placeholder="Website seperti apa yang Anda butuhkan?" /></Field>
-            <button type="submit" className="border border-fg px-7 py-4 text-lg transition-colors hover:bg-fg hover:text-bg" data-cursor="hover">Buka draft email ↗</button>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+              <Field label="Nama usaha" error={errors.company?.message}><input {...register("company")} placeholder="Nama usaha" /></Field>
+              <Field label="Kota" error={errors.city?.message}><input {...register("city")} placeholder="Kota / kecamatan" /></Field>
+            </div>
+            <Field label="Catatan (opsional)" error={errors.message?.message}><textarea {...register("message")} rows={3} placeholder="Alamat, tautan Instagram, atau hal lain yang perlu dicek" /></Field>
+            <button type="submit" className="border border-fg px-7 py-4 text-lg transition-colors hover:bg-fg hover:text-bg" data-cursor="hover">Kirim permintaan cek ↗</button>
           </form>
         </Reveal>
       </div>

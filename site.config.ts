@@ -61,7 +61,7 @@ export const site = {
     lead: "Asto®",
     headline: "Studio digital untuk bisnis yang ingin terlihat dan dipilih.",
     subhead:
-      "Kami bantu usaha kecil ditemukan di Google, dipercaya lewat website, dan dihubungi lewat WhatsApp.",
+      "Membantu usaha Anda mudah ditemukan di Google Maps, dipercaya lewat website, dan dihubungi lewat WhatsApp atau email.",
     cta: "Cek gratis: apakah usaha Anda muncul di Google?",
     ticker: [
       "Website Bisnis",

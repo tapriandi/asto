@@ -224,7 +224,7 @@ export const site = {
       title: "Muncul di Google Maps & WhatsApp",
       desc: "Profil Google dan WhatsApp Business disiapkan rapi: kategori, jam buka, foto, katalog, dan balasan cepat — supaya usaha Anda ditemukan dan mudah dihubungi.",
       fit: "UMKM yang belum muncul di Google Maps atau masih memakai WhatsApp biasa.",
-      image: "/img/marque/marque-4.jpg",
+      image: "/img/services/google-maps.jpg",
       featured: true,
     },
     {
@@ -232,7 +232,7 @@ export const site = {
       title: "Website bisnis",
       desc: "Halaman yang menjelaskan siapa Anda, apa yang dikerjakan, dan bagaimana dihubungi — dalam satu alamat yang bisa dibagikan.",
       fit: "UMKM, PT/CV, organisasi, praktik profesional, personal brand.",
-      image: "/img/marque/marque-1.jpg",
+      image: "/img/services/website.jpg",
       featured: true,
     },
     {
@@ -240,7 +240,7 @@ export const site = {
       title: "E-commerce",
       desc: "Katalog, keranjang, dan alur checkout yang mengikuti cara pelanggan Anda berbelanja, dengan rekap pesanan yang mudah diikuti pemilik.",
       fit: "Toko retail, kuliner, brand lokal yang mulai jualan online.",
-      image: "/img/marque/marque-2.jpg",
+      image: "/img/services/ecommerce.jpg",
       featured: true,
     },
     {
@@ -248,21 +248,21 @@ export const site = {
       title: "Aplikasi web",
       desc: "Sistem berbasis browser: pencatatan, pesanan, inventaris, booking, dashboard. Dibangun mengikuti alur kerja tim Anda, bukan sebaliknya.",
       fit: "Bisnis atau organisasi yang masih bergantung pada pencatatan manual dan banyak spreadsheet.",
-      image: "/img/marque/marque-3.jpg",
+      image: "/img/services/web-app.jpg",
     },
     {
       no: "005",
       title: "Aplikasi mobile",
       desc: "Aplikasi Android/iOS atau PWA untuk kebutuhan yang harus tersedia di ponsel pelanggan atau tim lapangan.",
       fit: "Layanan langganan, tim lapangan, aplikasi pelanggan.",
-      image: "/img/marque/marque-4.jpg",
+      image: "/img/services/mobile.jpg",
     },
     {
       no: "006",
       title: "Maintenance & perawatan",
       desc: "Pembaruan konten, pemeriksaan masalah, dan penyesuaian halaman seiring bisnis berkembang. Lingkup dan jadwal kerja disepakati per kebutuhan.",
       fit: "Website yang sudah aktif dan perlu dijaga.",
-      image: "/img/marque/marque-1.jpg",
+      image: "/img/services/maintenance.jpg",
       featured: true,
     },
     {
@@ -270,14 +270,14 @@ export const site = {
       title: "Interactive 3D experience",
       desc: "Pengalaman 3D interaktif di browser: produk yang bisa diputar, ruang virtual, atau halaman peluncuran dengan animasi. Berjalan tanpa aplikasi tambahan.",
       fit: "Peluncuran produk, showroom, brand yang butuh pembeda visual.",
-      image: "/img/marque/marque-2.jpg",
+      image: "/img/services/interactive-3d.jpg",
     },
     {
       no: "008",
       title: "Produk digital",
       desc: "Template dan aset siap pakai untuk Anda yang ingin memulai sendiri, dengan panduan pemasangan dan dukungan sesuai produknya.",
       fit: "Pemilik usaha yang ingin mulai cepat dengan biaya lebih ringan.",
-      image: "/img/marque/marque-3.jpg",
+      image: "/img/services/digital-product.jpg",
     },
   ] as Service[],
   stats: [

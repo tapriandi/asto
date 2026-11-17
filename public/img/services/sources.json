@@ -1,0 +1,13 @@
+{
+  "provider": "Unsplash",
+  "images": {
+    "google-maps.jpg": "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
+    "website.jpg": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d",
+    "ecommerce.jpg": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d",
+    "web-app.jpg": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    "mobile.jpg": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c",
+    "maintenance.jpg": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+    "interactive-3d.jpg": "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4",
+    "digital-product.jpg": "https://images.unsplash.com/photo-1558655146-9f40138edfeb"
+  }
+}

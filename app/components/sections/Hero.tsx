@@ -6,8 +6,7 @@ import Reveal from "@/app/components/primitives/Reveal";
 import SplitText from "@/app/components/primitives/SplitText";
 
 export default function Hero() {
-  const featured = site.services.filter((service) => service.featured);
-  const services = [...featured, ...featured];
+  const colors = ["#e0edda", "#dce8f8", "#f9e1cf", "#e6dff4", "#f5dce7", "#f4edc9", "#d6ebeb", "#eadfd5"];
 
   return (
     <section className="flex min-h-[92svh] flex-col">
@@ -75,32 +74,27 @@ export default function Hero() {
         </Reveal>
       </div>
 
-      <div className="overflow-hidden border-y border-line py-3">
-        <div className="service-marquee-track" aria-label="Layanan Astodigi">
-          {services.map((service, i) => (
-            <article
-              key={`${service.no}-${i}`}
-              aria-hidden={i >= featured.length}
-              className={`shape-card relative mr-3 flex h-[calc(var(--spacing)*100)] w-[calc(var(--spacing)*68)] shrink-0 flex-col justify-between overflow-hidden p-6 text-deep ${
-                i % featured.length % 2 === 1 ? "shape-card--flip" : ""
-              }`}
-            >
-              <Image
-                src={service.image}
-                alt=""
-                fill
-                sizes="17rem"
-                className="object-cover opacity-15 mix-blend-luminosity"
-              />
-              <div className="relative flex items-start justify-between">
-                <span className="label text-deep/70">( {service.no} )</span>
-                <span aria-hidden className="text-lg">↗</span>
-              </div>
-              <div className="relative">
-                <h2 className="text-xl font-medium leading-tight text-deep md:text-2xl">{service.title}</h2>
-                <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-deep/65 md:text-sm">{service.desc}</p>
-              </div>
-            </article>
+      <div className="service-marquee border-y border-line py-3" aria-label="Layanan Astodigi">
+        <div className="service-marquee-track">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="service-marquee-group" aria-hidden={copy === 1} inert={copy === 1}>
+              {site.services.map((service, i) => (
+                <article
+                  key={service.no}
+                  style={{ backgroundColor: colors[i % colors.length] }}
+                  className={`shape-card flex h-[calc(var(--spacing)*100)] w-[calc(var(--spacing)*68)] shrink-0 flex-col overflow-hidden text-deep ${i % 2 === 1 ? "shape-card--flip" : ""}`}
+                >
+                  <div className="relative h-40 shrink-0">
+                    <Image src={service.image} alt="" fill loading="eager" sizes="17rem" className="object-cover" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-5">
+                    <span className="label text-deep/70">( {service.no} )</span>
+                    <h2 className="mt-3 text-xl font-medium leading-tight text-deep">{service.title}</h2>
+                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-deep/80">{service.desc}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           ))}
         </div>
       </div>

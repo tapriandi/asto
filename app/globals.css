@@ -162,11 +162,29 @@
     animation-direction: reverse;
   }
 
+  .service-marquee {
+    overflow: hidden;
+  }
+
   .service-marquee-track {
     display: flex;
     width: max-content;
-    animation: service-marquee 42s linear infinite;
+    animation: service-marquee 42000ms linear infinite;
     will-change: transform;
+  }
+
+  .service-marquee:hover .service-marquee-track,
+  .service-marquee:focus-within .service-marquee-track {
+    animation-play-state: paused;
+  }
+
+  .service-marquee-group {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .service-marquee-group > * {
+    margin-right: 0.75rem;
   }
 
   @keyframes service-marquee {
@@ -211,6 +229,14 @@
   .marquee-track,
   .service-marquee-track {
     animation: none;
+  }
+
+  .service-marquee {
+    overflow-x: auto;
+  }
+
+  .service-marquee-group[aria-hidden="true"] {
+    display: none;
   }
 
   .split-word {

@@ -82,15 +82,19 @@ export default function Hero() {
                 <article
                   key={service.no}
                   style={{ backgroundColor: colors[i % colors.length] }}
-                  className={`shape-card flex h-[calc(var(--spacing)*100)] w-[calc(var(--spacing)*68)] shrink-0 flex-col overflow-hidden text-deep ${i % 2 === 1 ? "shape-card--flip" : ""}`}
+                  className={`shape-card relative flex h-[calc(var(--spacing)*100)] w-[calc(var(--spacing)*68)] shrink-0 flex-col overflow-hidden text-deep ${i % 2 === 1 ? "shape-card--flip" : ""}`}
                 >
-                  <div className="relative h-40 shrink-0">
-                    <Image src={service.image} alt="" fill loading="eager" sizes="17rem" className="object-cover" />
-                  </div>
-                  <div className="flex flex-1 flex-col p-5">
-                    <span className="label text-deep/70">( {service.no} )</span>
-                    <h2 className="mt-3 text-xl font-medium leading-tight text-deep">{service.title}</h2>
-                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-deep/80">{service.desc}</p>
+                  <Image src={service.image} alt="" fill loading="eager" sizes="17rem" className="object-cover" />
+                  <div aria-hidden className="absolute inset-0 opacity-90" style={{ backgroundColor: colors[i % colors.length] }} />
+                  <div className="relative flex h-full flex-col justify-between p-6">
+                    <div className="flex items-start justify-between">
+                      <span className="label text-deep">( {service.no} )</span>
+                      <span aria-hidden>↗</span>
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-medium leading-tight text-deep">{service.title}</h2>
+                      <p className="mt-3 text-sm leading-relaxed text-deep">{service.desc}</p>
+                    </div>
                   </div>
                 </article>
               ))}

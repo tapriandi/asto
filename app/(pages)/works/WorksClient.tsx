@@ -22,9 +22,9 @@ export default function WorksClient() {
       <div className="site-shell">
         <Reveal>
           <span className="label">( _02 ) Works</span>
-          <SplitText as="h1" text="Demo Concept." className="display-section mt-6 max-w-[12ch]" />
+          <SplitText as="h1" text="Portfolio." className="display-section mt-6 max-w-[12ch]" />
           <p className="mt-4 max-w-[56ch] text-sm leading-relaxed text-muted-2">
-            Dirancang untuk menunjukkan pendekatan dan standar pengerjaan kami — bukan pekerjaan klien.
+            Karya Astodigi dan Demo Concept. Proyek berlabel Demo Concept bukan pekerjaan klien.
           </p>
         </Reveal>
 

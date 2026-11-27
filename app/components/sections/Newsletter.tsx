@@ -59,7 +59,7 @@ export default function Newsletter() {
         </Reveal>
 
         <Link href="/works" className="mt-16 inline-flex items-center gap-4 text-2xl line-hover" data-cursor="hover">
-          Lihat Demo Concept ↗
+          Lihat portfolio ↗
         </Link>
       </div>
     </section>

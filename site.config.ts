@@ -3,8 +3,9 @@ export type Project = {
   slug: string;
   title: string;
   category: string;
-  label: "Demo Concept";
-  year: string;
+  label: "Demo Concept" | "Karya Astodigi";
+  year?: string;
+  liveUrl?: string;
   image: string;
   video?: string;
   intro: string;
@@ -13,7 +14,7 @@ export type Project = {
   body: string[];
   features: string[];
   scope: string[];
-  timeline: string;
+  timeline?: string;
 };
 
 export type Service = { no: string; title: string; desc: string; fit: string; image: string; featured?: boolean };
@@ -78,6 +79,41 @@ export const site = {
     "Kami merancang dan membangun website, aplikasi web, dan produk digital untuk individu, UMKM, startup, PT/CV, dan organisasi — dikerjakan langsung dari struktur sampai peluncuran.",
   processStatement: "Setiap halaman yang kami bangun harus menjawab satu pertanyaan pelanggan Anda. Kalau tidak, itu hanya dekorasi.",
   projects: [
+    {
+      id: "07",
+      slug: "golfer",
+      title: "Golfer",
+      category: "SaaS",
+      label: "Karya Astodigi",
+      image: "/img/projects/golfer.webp",
+      liveUrl: "https://golfer.framer.website/",
+      intro: "Landing page untuk Golfer, produk SaaS reservasi lapangan golf bagi pemain dan pengelola lapangan.",
+      challenge: "Pemain perlu memahami cara mencari lapangan dan memilih jadwal. Pengelola punya kebutuhan berbeda: mengatur reservasi dan operasi lapangan.",
+      solution: "Halaman publik memperkenalkan manfaat untuk pemain, menjelaskan alur reservasi, dan memberi jalur terpisah bagi pengelola.",
+      body: [
+        "Halaman Golfer memadukan ilustrasi lapangan dengan penjelasan fitur, langkah memulai, dan pertanyaan umum. Tombol unduh memberi pengunjung langkah berikutnya.",
+        "Reservasi dan POS termasuk cakupan produk. Tautan ini membuka landing page, bukan akses ke sistem reservasi atau POS.",
+      ],
+      features: ["Pengenalan alur reservasi", "Katalog lapangan", "Halaman untuk pengelola", "Tautan unduh aplikasi"],
+      scope: ["Landing page produk SaaS", "Struktur informasi fitur dan reservasi"],
+    },
+    {
+      id: "08",
+      slug: "pristinz",
+      title: "Pristinz",
+      category: "Company profile",
+      label: "Karya Astodigi",
+      image: "/img/projects/pristinz.webp",
+      liveUrl: "https://prisitnz.framer.website/",
+      intro: "Website profil Pristinz, perusahaan yang memperkenalkan solusi efisiensi energi untuk bangunan.",
+      challenge: "Pengunjung perlu paham apa yang ditawarkan sebelum membaca detail material atau meninjau contoh penerapannya.",
+      solution: "Website membuka dengan visual arsitektur, lalu memisahkan profil perusahaan, produk, proyek, dan kontak agar tiap informasi mudah ditemukan.",
+      body: [
+        "Pengunjung dapat menelusuri lini produk seperti film jendela, kaca pengendali panas, dan jendela surya, lalu membuka bagian proyek untuk melihat konteks penerapannya.",
+      ],
+      features: ["Profil perusahaan", "Katalog produk", "Showcase proyek", "Halaman kontak"],
+      scope: ["Website profil perusahaan", "Penyajian produk dan proyek"],
+    },
     {
       id: "01",
       slug: "website-bisnis-umkm",

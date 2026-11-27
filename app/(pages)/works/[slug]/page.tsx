@@ -48,7 +48,7 @@ export default async function ProjectDetailPage({
     { label: "Kategori", value: project.category },
     { label: "Durasi", value: project.timeline },
     { label: "Status", value: project.label },
-  ];
+  ].filter((item) => item.value);
 
   return (
     <>
@@ -63,6 +63,7 @@ export default async function ProjectDetailPage({
           <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start">
             <Reveal>
               <p className="max-w-[52ch] text-xl leading-relaxed text-muted-2">{project.intro}</p>
+              {project.liveUrl ? <a href={project.liveUrl} className="line-hover mt-4">Lihat situs ↗</a> : null}
             </Reveal>
             <Reveal delay={0.06}>
               <dl className="grid grid-cols-2 gap-x-6 gap-y-8">
@@ -80,14 +81,14 @@ export default async function ProjectDetailPage({
             <div className="relative mt-14 aspect-[1.646] overflow-hidden rounded-[2.5rem] bg-soft">
               <Image
                 src={project.image}
-                alt={`${project.title} — Demo Concept`}
+                alt={project.liveUrl ? `Tangkapan layar situs ${project.title}` : `Visual konsep ${project.title}`}
                 fill
                 priority
                 sizes="(max-width: 1520px) calc(100vw - 2rem), 1520px"
                 className="object-cover"
               />
               <span className="absolute left-5 top-5 rounded-full bg-bg/90 px-4 py-2 text-xs font-medium tracking-wide text-fg">
-                Demo Concept
+                {project.label}
               </span>
               <div className="absolute inset-0 bg-fg/10" />
             </div>
@@ -98,7 +99,7 @@ export default async function ProjectDetailPage({
       <section className="py-[var(--section-gap)]">
         <div className="site-shell">
           <Reveal>
-            <span className="label">( Demo Concept )</span>
+            <span className="label">( {project.label} )</span>
             <SplitText as="h2" scroll text={project.title} className="display-section mt-6 max-w-[14ch]" />
           </Reveal>
 
@@ -150,7 +151,7 @@ export default async function ProjectDetailPage({
         <div className="site-shell">
           <Reveal>
             <div className="flex items-end justify-between gap-6 pb-8">
-              <h2 className="display-section">Demo lainnya.</h2>
+              <h2 className="display-section">Karya lainnya.</h2>
               <Link href="/works" className="line-hover text-base" data-cursor="hover">Lihat semua ↗</Link>
             </div>
           </Reveal>
@@ -169,7 +170,7 @@ export default async function ProjectDetailPage({
                   </div>
                   <div className="flex items-baseline justify-between gap-4 pt-3">
                     <h3 className="display-sm">{item.title}</h3>
-                    <span className="label shrink-0">_ {item.year}</span>
+                    <span className="label shrink-0">{item.label}</span>
                   </div>
                 </Link>
               </Reveal>

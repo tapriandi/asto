@@ -23,4 +23,15 @@ assert(!raw.includes("100% Kepemilikan"), "100% Kepemilikan stat must be removed
 assert(raw.includes("bukan sistem rekam medis"), "Clinic compliance disclaimer required");
 assert(raw.includes("Bisa dikembangkan bertahap"), "About principle 4 must match draft");
 
+const projects = raw.split("  projects: [")[1].split("] as Project[]")[0];
+const assets = [...projects.matchAll(/image: "(\/img\/projects\/[^"/]+)"/g)].map((match) => match[1]);
+assert.equal(assets.length, 8);
+for (const asset of assets) assert(fs.existsSync(path.join(__dirname, "../public", asset)), `Missing ${asset}`);
+assert.deepEqual([...projects.matchAll(/slug: "([^"]+)"/g)].slice(0, 2).map((match) => match[1]), ["golfer", "pristinz"]);
+assert.deepEqual([...projects.matchAll(/liveUrl: "([^"]+)"/g)].map((match) => match[1]), [
+  "https://golfer.framer.website/",
+  "https://prisitnz.framer.website/",
+]);
+assert.equal((projects.match(/label: "Demo Concept"/g) || []).length, 6);
+
 console.log("PASS: Content constraints validated without extra dependencies.");

@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import WorksClient from "./WorksClient";
 
 export const metadata: Metadata = {
-  title: "Demo Concept — Contoh Karya Astodigi",
-  description:
-    "Enam Demo Concept Astodigi: website UMKM, toko online, healthcare, undangan digital, aplikasi manajemen, dan pengalaman 3D.",
+  title: "Portfolio",
+  description: "Lihat karya Astodigi, termasuk landing page SaaS Golfer dan website profil Pristinz, serta Demo Concept untuk beragam kebutuhan bisnis.",
   alternates: { canonical: "/works" },
 };
 

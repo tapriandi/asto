@@ -98,7 +98,7 @@ export default function AboutPage() {
                 Hubungi studio ↗
               </Link>
               <Link href="/works" className="line-hover" data-cursor="hover">
-                Lihat Demo Concept ↗
+                Lihat portfolio ↗
               </Link>
             </div>
           </Reveal>

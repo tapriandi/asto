@@ -11,14 +11,15 @@ export default function LatestProjects() {
         <Reveal>
           <div className="flex items-end justify-between gap-6">
             <SplitText as="h2" scroll text="Karya terbaru." className="display-section" />
-            <span className="label shrink-0">( Demo Concept )</span>
           </div>
         </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2">
           {site.projects.slice(0, 6).map((project, i) => (
             <Reveal key={project.id} delay={(i % 2) * 0.08}>
-              <ProjectCard project={project} priority={i < 2} />
+              <Link href={`/works/${project.slug}`} className="block">
+                <ProjectCard project={project} priority={i < 2} />
+              </Link>
             </Reveal>
           ))}
         </div>
@@ -29,7 +30,7 @@ export default function LatestProjects() {
               Lihat semua project ↗
             </Link>
             <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-muted-2">
-              Semua karya di atas adalah Demo Concept — dirancang untuk menunjukkan pendekatan kami, bukan pekerjaan klien.
+              Proyek berlabel Demo Concept menunjukkan pendekatan kami, bukan pekerjaan klien.
             </p>
           </div>
         </Reveal>
